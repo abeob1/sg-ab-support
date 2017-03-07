@@ -1,0 +1,155 @@
+    <!-- Main content -->
+
+
+<div ng-controller="Users_ctrl">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">admin/Users</li>
+			</ol>
+		</div><!--/.row-->
+		
+		
+		<div class="row">
+			<div class="col-md-12" style="background:#FFFFFF;">
+				
+
+				<div class="panel-heading" id="accordion"><i class="fa fa-user" aria-hidden="true"></i> Users List</div>
+				<div class="col-md-12">
+				
+				<table width="100%" border="0" cellspacing="5" class="table-hover table-responsive table" cellpadding="5">
+				<thead class="thead-default">
+  <tr>
+    <th>S.No</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Gender</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Phone Number</th>
+    <th>Account type</th>
+    <th>Department</th>
+    <th>Company</th>
+    <th>Action</th>
+	<th><button type="button" class="btn-info btn"ng-click="filter = !filter"><i class="fa fa-filter" aria-hidden="true"></i></button></th>
+  </tr>
+  
+  <tr ng-show="filter">
+    <td></td>
+    <td><input type="text"  ng-model="searchtext.first_name" class="form-control"/></td>
+    <td><input type="text"  ng-model="searchtext.last_name" class="form-control"/></td>
+    <td><select class="form-control" ng-model="searchtext.gender"><option value="1">Male</option><option value="2">Female</option><option value="9">Others</option></select></td>
+    <td><input type="text"  ng-model="searchtext.email" class="form-control"/></td>
+    <td><select class="form-control" ng-model="searchtext.active"><option value="1">Active</option><option value="0">Inactive</option></select></td>
+    <td><input type="text"  ng-model="searchtext.phone_number" class="form-control"/></td>
+    <td><input type="text" style="width:100px;"  ng-model="searchtext.account_type" class="form-control"/></td>
+    <td><input type="text"  ng-model="searchtext.DeptName" class="form-control"/></td>
+    <td><input type="text"  ng-model="searchtext.CompanyName" class="form-control"/></td>
+    <td></td>
+    <td>&nbsp;</td>
+  </tr>
+  </thead>
+  <tr ng-repeat="d in AllUsers |filter:searchtext">
+    <td>{{$index+1}}</td>
+    <td>{{d.first_name}}</td>
+    <td>{{d.last_name}}</td>
+    <td><span ng-show="d.gender==1">Male</span> <span ng-show="d.gender==2">Female</span><span ng-show="d.gender==9">Others</span></td>
+    <td>{{d.email}}</td>
+    <td><span class="label label-success" ng-show="d.active=='1'">Active</span> <span class="label label-danger" ng-show="d.active=='0'">Inactive</span></td>
+    <td>{{d.phone_number}}</td>
+    <td>{{d.account_type}}</td>
+    <td>{{d.DeptName}}</td>
+    <td>{{d.CompanyName}}</td>
+    <td colspan="2">
+	<button ng-show="d.active=='0'" title="Activate" ng-click="changeuserStatus('1',d.id);" class="btn-success btn"><i class="fa fa-check" aria-hidden="true"></i></button>
+	<div class="dropdown" style="float:left;margin-right:4px;">
+  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-cogs" aria-hidden="true"></i>
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li ng-click="changecompany(d.id);"><a href=""><i class="fa fa-exchange" aria-hidden="true"></i> <strong>Company</strong></a></li>
+    <li ng-click="changedepartment(d.id);"><a href=""><i class="fa fa-exchange" aria-hidden="true"></i> <strong>Department</strong></a></li>
+    <li ng-click="changeType(d.id);"><a href=""><i class="fa fa-exchange" aria-hidden="true"></i> <strong>Type</strong></a></li>
+  </ul>
+</div> <button ng-show="d.active=='1'" title="DeActivate" class="btn-danger btn" ng-click="changeuserStatus('0',d.id);"><i class="fa fa-times" aria-hidden="true"></i></button>
+	
+	
+				
+				
+	</td>
+    </tr>
+</table>
+
+
+				</div>
+				
+			</div><!--/.col-->
+			
+			
+		</div><!--/.row-->
+		
+		<!--company  Modal -->   
+<div class="modal fade in" id="companyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                
+                <div class="modal-body" id="custom-alert-body">
+				<strong>Select Company :</strong> <select class="form-control" ng-model="rootCompany">
+				<option  value="">-- Select --</option>
+				<option ng-repeat="c in AllCompany" value="{{c.id}}">{{c.name}}</option></select>
+				<div align="right" style="margin-top:10px;"><button type="button" class="btn-success btn" ng-click="Cchange();">Change</button>
+
+<button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+</div> 
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--department  Modal -->   
+<div class="modal fade in" id="departmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                
+                <div class="modal-body" id="custom-alert-body">
+				<strong>Select Department :</strong> <select class="form-control" ng-model="rootDepartment">
+				<option  value="">-- Select --</option>
+				<option ng-repeat="D in AllDetartment" value="{{D.id}}">{{D.name}}</option></select>
+				<div align="right" style="margin-top:10px;"><button type="button" class="btn-success btn" ng-click="Dchange();">Change</button>
+
+<button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+</div> 
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+<!--Account Type  Modal -->   
+<div class="modal fade in" id="typeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                
+                <div class="modal-body" id="custom-alert-body">
+				<strong>Select Account Type :</strong> <select class="form-control" ng-model="rootType">
+				<option  value="">-- Select --</option>
+				<option ng-repeat="D in AllType" value="{{D.account_type}}">{{D.account_type}}</option></select>
+				<div align="right" style="margin-top:10px;"><button type="button" class="btn-success btn" ng-click="Tchange();">Change</button>
+
+<button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+</div> 
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+	</div>

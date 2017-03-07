@@ -1,0 +1,15 @@
+insert org
+
+INSERT INTO `organization` (`id`, `name`, `phone`, `website`, `address`, `head`, `internal_notes`, `created_at`, `updated_at`) VALUES (NULL, 'Abeo-electra', '9899898989', 'www.abeo-electra.com', '102, south street , sg', NULL, '', '2016-11-29 00:00:00', NULL);
+
+insert into user assaign org
+
+INSERT INTO `user_assign_organization` (`id`, `org_id`, `user_id`, `created_at`, `updated_at`) VALUES (NULL, '1', '1', '2016-11-29 00:00:00', NULL);
+
+insert user 
+INSERT INTO `users` (`id`, `user_name`, `first_name`, `last_name`, `gender`, `email`, `ban`, `password`, `active`, `ext`, `country_code`, `phone_number`, `mobile`, `agent_sign`, `account_type`, `account_status`, `assign_group`, `primary_dpt`, `agent_tzone`, `daylight_save`, `limit_access`, `directory_listing`, `vacation_mode`, `company`, `role`, `internal_note`, `profile_pic`, `remember_token`, `created_at`, `updated_at`) VALUES (NULL, 'albert', 'albert', 'welcome', '1', 'albert@gmail.com', '', 'sss', '', '', '', '', NULL, '', '', 'active', NULL, '1', '', '', '', '', '', '', '', '', '', NULL, '2016-11-29 00:00:00', NULL);
+
+
+insert priority
+
+INSERT INTO `ticket_priority` (`priority_id`, `priority`, `status`, `priority_desc`, `priority_color`, `priority_urgency`, `ispublic`, `is_default`, `created_at`, `updated_at`) VALUES (NULL, 'critical', 'active', 'critical change or need to do now', '#FF0000', '', '1', 'no', '2016-12-29 00:00:00', NULL);

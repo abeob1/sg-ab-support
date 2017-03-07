@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support</title>
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+
+
+<script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/angular.js"></script>
+    <script src="js/libs/angular-route.js"></script>
+    <script src="js/libs/angular-ui-router.js"></script>
+    <script src="js/libs/ocLazyLoad.js"></script>
+    <script src="js/libs/ui-bootstrap.js"></script>
+    <script src="js/libs/ui-bootstrap-tpls-0.9.0.js"></script>
+    <script src="js/libs/angular-cookies.js"></script>
+	
+	
+	<script src="js/config/app.js"></script>
+    <script src="js/services/util_factory.js" ></script>
+	<script src="js/ctrl/Cdashbord.js" ></script>
+</head>
+
+<body ng-app="myApp" ng-controller="Cdashbord_ctrl">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span><img src="images/Logo.png"></span> Support</a>
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a></li>
+							<li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
+							<li><a href="index.html"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+							
+		</div><!-- /.container-fluid -->
+	</nav>
+		
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		
+		<ul class="nav menu">
+			<li>
+                            <a href="MyTickets.html" id="load-myticket">
+                                <i class="fa fa-user"></i> <span>My Tickets </span>
+                                <!--<small class="pull-right text-danger">0</small>-->
+                            </a>
+                        </li>
+			<li  ng-show="userdata[0].account_type=='Customer'" >
+                            <a href="customerdashbord.html" id="load-unassigned">
+                                <i class="fa fa-th"></i> <span>Dashboard</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='Agent'" >
+                            <a href="" id="load-unassigned">
+                                <i class="fa fa-th"></i> <span>Unassigned</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='Agent'">
+                            <a href="" id="load-unassigned">
+                                <i class="fa fa-calendar-times-o"></i> <span>Overdue</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			<li>
+                             <a href="">
+                                <i class="fa fa-trash-o"></i> <span>Trash</span>
+                                <!--<small class="pull-right text-danger">1</small>-->
+                            </a>
+                        </li>
+			
+			<li role="presentation" class="divider"></li>
+			<li><a href="index.html">  Logout</a></li>
+		</ul>
+
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<!--<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>-->
+				<li class="active">Dashbord</li>
+			</ol>
+		</div><!--/.row-->
+		
+		
+		
+		
+		
+		<section class="content">
+                    <!-- Main content -->
+					<div class="row" style="margin-top:10px;">
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-blue panel-widget ">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<i class="fa fa-ticket" style="font-size:50px;" aria-hidden="true"></i>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">120</div>
+							<div class="text-muted">New Tickets</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-orange panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+							<i class="fa fa-thumbs-up" style="font-size:50px;" aria-hidden="true"></i>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">52</div>
+							<div class="text-muted">Closed</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-md-6 col-lg-3">
+				<div class="panel panel-teal panel-widget">
+					<div class="row no-padding">
+						<div class="col-sm-3 col-lg-5 widget-left">
+								<i class="fa fa-bullhorn" style="font-size:50px;" aria-hidden="true"></i>
+						</div>
+						<div class="col-sm-9 col-lg-7 widget-right">
+							<div class="large">24</div>
+							<div class="text-muted">Un assigned</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+<div class="panel-default panel">
+    <div class="panel-heading with-border" style="height:auto;">
+        <h1 class="panel-title" style="font-size:18px"><i class="fa fa-id-badge" aria-hidden="true"></i> Dashbord</h1>
+    </div><!-- /.box-header -->
+
+    <div class="panel-body" style="opacity: 1;">
+                <!-- failure message -->
+        
+		
+        
+		
+		<div class="col-lg-8" style="padding:0px;">
+					<div class="col-lg-6" style="padding:0px;">
+					<div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label" style="padding:0px;">
+                            Customer
+                        </label>
+                        <div >
+                          ICSB SG
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label" style="padding:0px;">
+                            Customer Rep
+                        </label>
+                        <div >
+                          ESS00000212
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label" style="padding:0px;">
+                            Contact No
+                        </label>
+                        <div >
+                          9899898989
+                        </div>
+                    </div>
+					
+					</div>
+					<div class="col-lg-6" style="padding:0px;">
+					
+					<div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label" style="padding:0px;">
+                            GA Team
+                        </label>
+                        <div >
+                          GSTEAM
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label" style="padding:0px;">
+                            Ms Anna
+                        </label>
+                        <div >
+                          123456
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label for="inputEmail3" class="col-sm-4 control-label" style="padding:0px;">
+                            Period: 
+                        </label>
+                        <div >
+                          22:10:2014 - 21:10:2017 
+                        </div>
+                    </div>
+					</div>
+					
+					
+					<div><p><strong>Contract Detail</strong></p>
+					User contract was signed in 2014 and it valide till 2017</div>
+					<div style="border-bottom:solid 1px #CCCCCC;"></div>
+					<br/>
+					<div><p><strong>Support Description</strong></p>
+					Support contract created for SAP B1 and SAP customization</div>
+					<div style="border-bottom:solid 1px #CCCCCC;"></div>
+					
+					<br/>
+					<div><p><strong>Travel Deduction - (x) hours for each onsite support </strong></p>
+					dummy text , can replace it later <span class="badge">Carry forward Allowed</span> </div>
+					<div style="border-bottom:solid 1px #CCCCCC;margin-top:3px;"></div>
+					<br/>
+					
+					
+					<div >
+                    <ul id="myTabs" class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#General" id="General-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="false">2016-12</a></li>
+                        <li role="presentation" class=""><a href="#Addon" role="tab" id="Addon-tab" data-toggle="tab" aria-controls="Addon" aria-expanded="true">2016-11</a></li>
+                        <li role="presentation" class=""><a href="#Attachment" role="tab" id="Attachment-tab" data-toggle="tab" aria-controls="Attachment" aria-expanded="true">2016-10</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content scrollbar1" tabindex="5000" style="overflow: hidden; outline: none;">
+                        <div role="tabpanel" class="tab-pane fade active in" id="General" aria-labelledby="General-tab-tab">
+                            <span class="top-buffer"></span>
+                            <table width="100%" border="0" cellspacing="5" class="table table-hover table-bordered table-striped" cellpadding="5">
+  <tr>
+    <th>&nbsp;</th>
+    <th>Subject</th>
+    <th>Ticket ID</th>
+    <th>Priority</th>
+    <th>Assigned To</th>
+    <th>Last Activity</th>
+  </tr>
+  <!--<tr>
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html" title="www dsfs fd">My OTP prob<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
+    <td><a href="">#AAAA-0000-002</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
+    <td>Thomshdhd </td>
+    <td><a href="#">Demo Admin</a></td>
+    <td>15/12/2016 22:08:23</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html" title="www dsfs fd">Www dsfs fd&nbsp;<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
+    <td><a href="">#AAAA-0000-002</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
+    <td>Thomshdhd </td>
+    <td><a href="#">Demo Admin</a></td>
+    <td>15/12/2016 22:08:23</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="#" title="www dsfs fd">Www dsfs fd&nbsp;<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
+    <td><a href="">#AAAA-0000-002</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
+    <td>Thomshdhd </td>
+    <td><a href="#">Demo Admin</a></td>
+    <td>15/12/2016 22:08:23</td>
+  </tr>-->
+  <tr ng-repeat="d in MAILLIST">
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html?id={{d.id}}" title="">{{d.Subject}}<!--<span style="color:green">(1)<i class="fa fa-envelope"></i></span>--></a></td>
+    <td><a href="" ng-click="GetMailById(d.Val);">#{{d.ticket_number}}</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: {{d.priority_color}};color:#FFFFFF;">{{d.priority}}</button></td>
+    <td><a href="#">{{d.AssignedTOName}}</a></td>
+    <td>{{d.created_at}}</td>
+  </tr>
+</table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade in" id="Addon" aria-labelledby="Addon-tab">
+                            <span class="top-buffer"></span>
+                            <table width="100%" border="0" cellspacing="5" class="table table-hover table-bordered table-striped" cellpadding="5">
+  <tr>
+    <th>&nbsp;</th>
+    <th>Subject</th>
+    <th>Ticket ID</th>
+    <th>Priority</th>
+    <th>Assigned To</th>
+    <th>Last Activity</th>
+  </tr>
+  <!--<tr>
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html" title="www dsfs fd">My OTP prob<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
+    <td><a href="">#AAAA-0000-002</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
+    <td>Thomshdhd </td>
+    <td><a href="#">Demo Admin</a></td>
+    <td>15/12/2016 22:08:23</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html" title="www dsfs fd">Www dsfs fd&nbsp;<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
+    <td><a href="">#AAAA-0000-002</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
+    <td>Thomshdhd </td>
+    <td><a href="#">Demo Admin</a></td>
+    <td>15/12/2016 22:08:23</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="#" title="www dsfs fd">Www dsfs fd&nbsp;<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
+    <td><a href="">#AAAA-0000-002</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
+    <td>Thomshdhd </td>
+    <td><a href="#">Demo Admin</a></td>
+    <td>15/12/2016 22:08:23</td>
+  </tr>-->
+  <tr ng-repeat="d in MAILLIST">
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html?id={{d.id}}" title="">{{d.Subject}}<!--<span style="color:green">(1)<i class="fa fa-envelope"></i></span>--></a></td>
+    <td><a href="" ng-click="GetMailById(d.Val);">#{{d.ticket_number}}</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: {{d.priority_color}};color:#FFFFFF;">{{d.priority}}</button></td>
+    <td><a href="#">{{d.first_name}}</a></td>
+    <td>{{d.created_at}}</td>
+  </tr>
+</table>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="Attachment" aria-labelledby="Attachment-tab">
+                            <span class="top-buffer"></span>
+                            <table width="100%" border="0" cellspacing="5" class="table table-hover table-bordered table-striped" cellpadding="5">
+  <tr>
+    <th>&nbsp;</th>
+    <th>Subject</th>
+    <th>Ticket ID</th>
+    <th>Priority</th>
+    <th>Assigned To</th>
+    <th>Last Activity</th>
+  </tr>
+  <!--<tr>
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html" title="www dsfs fd">My OTP prob<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
+    <td><a href="">#AAAA-0000-002</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
+    <td>Thomshdhd </td>
+    <td><a href="#">Demo Admin</a></td>
+    <td>15/12/2016 22:08:23</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html" title="www dsfs fd">Www dsfs fd&nbsp;<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
+    <td><a href="">#AAAA-0000-002</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
+    <td>Thomshdhd </td>
+    <td><a href="#">Demo Admin</a></td>
+    <td>15/12/2016 22:08:23</td>
+  </tr>
+  <tr>
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="#" title="www dsfs fd">Www dsfs fd&nbsp;<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
+    <td><a href="">#AAAA-0000-002</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
+    <td>Thomshdhd </td>
+    <td><a href="#">Demo Admin</a></td>
+    <td>15/12/2016 22:08:23</td>
+  </tr>-->
+  <tr ng-repeat="d in MAILLIST">
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html?id={{d.id}}" title="">{{d.Subject}}<!--<span style="color:green">(1)<i class="fa fa-envelope"></i></span>--></a></td>
+    <td><a href="" ng-click="GetMailById(d.Val);">#{{d.ticket_number}}</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: {{d.priority_color}};color:#FFFFFF;">{{d.priority}}</button></td>
+    <td><a href="#">{{d.first_name}}</a></td>
+    <td>{{d.created_at}}</td>
+  </tr>
+</table>
+                             
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                    </div>
+                    
+                </div>
+				
+				
+				
+		</div>
+		
+		<div class="col-lg-4"><table width="100%" border="0" class="table" cellspacing="5" cellpadding="5">
+  <tr>
+    <td style="border-top:none" colspan="2" align="center"><a href="upload/customer-agreement.pdf" download  target="_blank"><button type="button" class="btn-default btn"><i class="fa fa-download" aria-hidden="true"></i> Contract Scan</button></a>
+	<button type="button" class="btn-success btn"><i class="fa fa-ticket" aria-hidden="true"></i> New tickets</button>	</td>
+  </tr>
+  <tr>
+    <td><strong>To- Date</strong></td>
+    <td>12-08-2019</td>
+  </tr>
+  <tr>
+    <td><strong>Hours from current contract</strong></td>
+    <td>220</td>
+  </tr>
+  <tr>
+    <td><strong>Hours carried forward</strong></td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td><strong>Used to date</strong></td>
+    <td>12-08-2016</td>
+  </tr>
+  <tr>
+    <td><strong>Balance</strong></td>
+    <td>2201</td>
+  </tr>
+  <tr>
+    <td><strong>Open tickets</strong></td>
+    <td>122</td>
+  </tr>
+  <tr>
+    <td><strong>Closed tickets this year</strong></td>
+    <td>566</td>
+  </tr>
+  <tr>
+    <td><button type="button" class="btn-default btn"><i class="fa fa-ticket" aria-hidden="true"></i> Open tickets</button></td>
+ 	<td><button type="button" class="btn-default btn"><i class="fa fa-ticket" aria-hidden="true"></i> Closed this year</button></td>
+  </tr>
+   <tr>
+    <td  colspan="2"  align="center"><button type="button" class="btn-default btn"><i class="fa fa-ticket" aria-hidden="true"></i>  Closed previous year</button></td>
+ 	
+  </tr>
+</table>
+</div>
+					
+					
+					
+    </div><!-- /.box-body -->
+</div><!-- /. box -->
+
+
+
+
+<!--<script>
+    var t_id = [];
+    var option = null;
+    $(function() {
+        //Enable check and uncheck all functionality
+        $(".checkbox-toggle").click(function() {
+            var clicks = $(this).data('clicks');
+            if (clicks) {
+                //Uncheck all checkboxes
+                $(".mailbox-messages input[type='checkbox']").iCheck("uncheck");
+                $(".fa", this).removeClass("fa-check-square-o").addClass('fa-square-o');
+            } else {
+                //Check all checkboxes
+                $(".mailbox-messages input[type='checkbox']").iCheck("check");
+                $(".fa", this).removeClass("fa-square-o").addClass('fa-check-square-o');
+            }
+            $(this).data("clicks", !clicks);
+        });
+    });
+
+    $(function() {
+        // Enable check and uncheck all functionality
+
+        $(".checkbox-toggle").click(function() {
+            var clicks = $(this).data('clicks');
+            if (clicks) {
+                //Uncheck all checkboxes
+                $("input[type='checkbox']", ".mailbox-messages").iCheck("uncheck");
+                // alert($("input[type='checkbox']").val());
+                t_id = $('.selectval').map(function() {
+                    return $(this).val();
+                }).get();
+                // alert(checkboxValues);
+            } else {
+                //Check all checkboxes
+                $("input[type='checkbox']", ".mailbox-messages").iCheck("check");
+                // alert('Hallo');
+                t_id = [];
+            }
+            $(this).data("clicks", !clicks);
+
+        });
+
+
+    });
+
+
+    $(document).ready(function() { /// Wait till page is loaded
+        $('#click').click(function() {
+            $('#refresh').load('inbox #refresh');
+            $('#title_refresh').load('inbox #title_refresh');
+            $('#count_refresh').load('inbox #count_refresh');
+            $("#show").show();
+        });
+
+        $(".select2").select2();
+
+        $('#delete').on('click', function() {
+            option = 0;
+            $('#myModalLabel').html("Delete Tickets");
+        });
+
+        $('#close').on('click', function() {
+            option = 1;
+            $('#myModalLabel').html("Close Tickets");
+        });
+
+        $("#modalpopup").on('submit', function(e) {
+            e.preventDefault();
+            var msg = "Are you sure?";
+            var values = getValues();
+            if (values == "") {
+                msg = "Please select tickets.";
+                $('.yes').html("Ok");
+                $('#myModalLabel').html("Alert");
+            } else {
+                $('.yes').html("Yes");
+            }
+            $('#custom-alert-body').html(msg);
+            $("#myModal").css("display", "block");
+        });
+
+        $(".closemodal, .no").click(function() {
+
+            $("#myModal").css("display", "none");
+
+        });
+
+        $('.yes').click(function() {
+            var values = getValues();
+            if (values == "") {
+                $("#myModal").css("display", "none");
+            } else {
+                $("#myModal").css("display", "none");
+                $("#modalpopup").unbind('submit');
+                if (option == 0) {
+                    //alert('delete');
+                    $('#delete').click();
+                } else {
+                    //alert('close');
+                    $('#close').click();
+                }
+            }
+        });
+
+        function getValues() {
+            var values = $('.selectval:checked').map(function() {
+                return $(this).val();
+            }).get();
+            return values;
+        }
+
+
+
+
+        //checking merging tickets
+        $('#MergeTickets').on('show.bs.modal', function() {
+
+            // alert("hi");
+            $.ajax({
+                type: "GET",
+                url: "http://www.faveohelpdesk.com/demo/helpdesk/check-merge-ticket/0",
+                dataType: "html",
+                data: {data1: t_id},
+                beforeSend: function() {
+                    $("#merge_body").hide();
+                    $("#merge_loader").show();
+                },
+                success: function(response) {
+                    if (response == 0) {
+                        $("#merge_body").show();
+                        $("#merge-succ-alert").hide();
+                        $("#merge-body-alert").show();
+                        $("#merge-body-form").hide();
+                        $("#merge_loader").hide();
+                        $("#merge-btn").attr('disabled', true);
+                        var message = "select two or more tickets to merge.";
+                        $("#merge-err-alert").show();
+                        $('#message-merge-err').html(message);
+
+                    } else if (response == 2) {
+                        $("#merge_body").show();
+                        $("#merge-succ-alert").hide();
+                        $("#merge-body-alert").show();
+                        $("#merge-body-form").hide();
+                        $("#merge_loader").hide();
+                        $("#merge-btn").attr('disabled', true);
+                        var message = "Ticktes from different users";
+                        $("#merge-err-alert").show();
+                        $('#message-merge-err').html(message);
+                    } else {
+
+                        $("#merge_body").show();
+                        $("#merge-body-alert").hide();
+                        $("#merge-body-form").show();
+                        $("#merge_loader").hide();
+                        $("#merge-btn").attr('disabled', false);
+                        $("#merge_loader").hide();
+                        $.ajax({
+                            url: "http://www.faveohelpdesk.com/demo/helpdesk/get-merge-tickets/0",
+                            dataType: "html",
+                            data: {data1: t_id},
+                            success: function(data) {
+
+                                $('#select-merge-parent').html(data);
+                            }
+                            // return false;
+                        });
+
+                    }
+                }
+            });
+        });
+
+        //submit merging form
+        $('#merge-form').on('submit', function() {
+            $.ajax({
+                type: "POST",
+                url: "http://www.faveohelpdesk.com/demo/helpdesk/merge-tickets/" + t_id,
+                dataType: "json",
+                data: $(this).serialize(),
+                beforeSend: function() {
+                    $("#merge_body").hide();
+                    $("#merge_loader").show();
+
+                },
+                success: function(response) {
+                    if (response == 0) {
+                        $("#merge_body").show();
+                        $("#merge-succ-alert").hide();
+                        $("#merge-body-alert").show();
+                        $("#merge-body-form").hide();
+                        $("#merge_loader").hide();
+                        $("#merge-btn").attr('disabled', true);
+                        var message = "Could not process your request try after some time.";
+                        $("#merge-err-alert").show();
+                        $('#message-merge-err').html(message);
+
+                    } else {
+                        $("#merge_body").show();
+                        $("#merge-err-alert").hide();
+                        $("#merge-body-alert").show();
+                        $("#merge-body-form").hide();
+                        $("#merge_loader").hide();
+                        $("#merge-btn").attr('disabled', true);
+                        var message = "Tickets has been merged successfully.";
+                        $("#merge-succ-alert").show();
+                        $('#message-merge-succ').html(message);
+                        setInterval(function() {
+                            $("#alert11").hide();
+                            setTimeout(function() {
+                                var link = document.querySelector('#load-myticket');
+                                if (link) {
+                                    link.click();
+                                }
+                            }, 500);
+                        }, 2000);
+
+                    }
+
+                }
+            })
+            return false;
+
+        });
+    });
+
+
+
+
+
+    function someFunction(id) {
+        if (document.getElementById(id).checked) {
+            t_id.push(id);
+            // alert(t_id);
+        } else if(document.getElementById(id).checked === undefined){
+            var index = t_id.indexOf(id);
+            if (index === -1){
+                t_id.push(id);
+            } else{
+                t_id.splice(index, 1);
+            }
+        } else {
+            var index = t_id.indexOf(id);
+            t_id.splice(index, 1);
+            // alert(t_id);
+        }
+    }
+
+</script>-->
+                </section>
+	</div>	<!--/.main-->
+
+	
+	<script src="js/bootstrap.min.js"></script>
+	
+</body>
+
+</html>

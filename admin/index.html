@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support - Admin</title>
+
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/datepicker3.css" rel="stylesheet">
+<link href="../css/styles.css" rel="stylesheet">
+<link href="../css/font-awesome.min.css" rel="stylesheet">
+
+
+
+
+<script src="../ckeditor/ckeditor.js"></script>
+
+<script src="../js/libs/jquery.min.js"></script>
+    <script src="../js/libs/angular.js"></script>
+    <script src="../js/libs/angular-route.js"></script>
+    <script src="../js/libs/angular-ui-router.js"></script>
+    <script src="../js/libs/ocLazyLoad.js"></script>
+    <script src="../js/libs/ui-bootstrap.js"></script>
+    <script src="../js/libs/ui-bootstrap-tpls-0.9.0.js"></script>
+    <script src="../js/libs/angular-cookies.js"></script>
+	
+	
+	<script src="../js/config/app.js"></script>
+    <script src="js/services/util_factory.js" ></script>
+	<script src="js/ctrl/main.js" ></script>
+	<script src="js/ctrl/dashbord.js" ></script>
+	<script src="js/ctrl/Users_ctrl.js" ></script>
+	<script src="js/ctrl/Status_ctrl.js" ></script>
+
+
+</head>
+
+<body ng-app="myApp" ng-controller="main_ctrl">
+<div class="loaderss" data-loadingss id="loadingss"><i class="fa fa-refresh fa-spin fa-fw"></i> Loading...</div>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"  style="background-color:#ee8a03" >
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" ng-click="expandtoggle();"><span><img src="../images/Logo.png"></span> Support</a>
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+							<li><a href="../index.html"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+							
+		</div><!-- /.container-fluid -->
+	</nav>
+		
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		
+		<ul class="nav menu">
+			<li>
+                            <a ui-sref="statusMaster" id="load-myticket">
+                                <i class="fa fa-map-signs"></i> <span>Status Master</span>
+                                <small class="pull-right text-danger">0</small>
+                            </a>
+                        </li>
+			<li >
+                            <a href="" id="load-unassigned" ui-sref="state2">
+                                <i class="fa fa-th"></i> <span>Unassigned</span>
+                                <small class="pull-right text-danger">2</small>
+                            </a>
+                        </li>
+			<li>
+                            <a href="" id="load-unassigned">
+                                <i class="fa fa-calendar-times-o"></i> <span>Overdue</span>
+                                <small class="pull-right text-danger">2</small>
+                            </a>
+                        </li>
+			<li>
+                             <a href="http://www.faveohelpdesk.com/demo/helpdesk/trash">
+                                <i class="fa fa-trash-o"></i> <span>Trash</span>
+                                <small class="pull-right text-danger">1</small>
+                            </a>
+                        </li>
+			
+			<li role="presentation" class="divider"></li>
+			<li><a href="index.html"> Login Out</a></li>
+		</ul>
+
+	</div><!--/.sidebar-->
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" id="content">		
+		<ui-view></ui-view>
+		</div>
+		<!--/.main-->
+
+	<script src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript">  CKEDITOR.replace( 'editor1' );</script>
+	
+</body>
+
+
+<!--Assign  Modal -->   
+<div class="modal fade in" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                
+                <div class="modal-body" id="custom-alert-body">
+				<table width="100%" border="0" cellspacing="5" cellpadding="5" class="table">
+  <tr style="background:#CCCCCC">
+    <th>Email</th>
+    <th>Department</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" placeholder="Enter Agent Email" ng-model="searchtext.email" /></td>
+    <td><input type="text" class="form-control" placeholder="Enter Department" ng-model="searchtext.name" /></td>
+    <td><i class="fa fa-search"></i></td>
+  </tr>
+    <tr ng-repeat="a in agentList |filter:searchtext">
+    <td>{{a.email}}</td>
+    <td>{{a.name}}</td>
+    <td><button type="button" class="btn-info btn" ng-click="AssignUser(a.id,a.email);">Assign</button></td>
+  </tr>
+  
+</table>
+
+<button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--customer  Modal -->   
+<div class="modal fade in" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                
+                <div class="modal-body" id="custom-alert-body">
+				<table width="100%" border="0" cellspacing="5" cellpadding="5" class="table">
+  <tr style="background:#CCCCCC">
+    <th>Email</th>
+    <th>Organization</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" placeholder="Enter Agent Email" ng-model="searchtext.email" /></td>
+    <td><input type="text" class="form-control" placeholder="Enter Department" ng-model="searchtext.name" /></td>
+    <td><i class="fa fa-search"></i></td>
+  </tr>
+    <tr ng-repeat="a in CustomersList |filter:searchtext">
+    <td>{{a.email}}</td>
+    <td>{{a.name}}</td>
+    <td><button type="button" class="btn-info btn" ng-click="changeOwner(a.id,a.email);">Select</button></td>
+  </tr>
+  
+</table>
+
+<button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Custome Modal -->
+<div id="info" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" ng-show="if(infoheader)">
+        <h4 class="modal-title">{{infoheader}}</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-{{type}}" style="text-align:center;font-size:16px;"><strong>{{infobody}}</strong></p>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</html>

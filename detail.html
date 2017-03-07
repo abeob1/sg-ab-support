@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support - detail</title>
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+
+<script src="ckeditor/ckeditor.js"></script>
+
+<script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/angular.js"></script>
+    <script src="js/libs/angular-route.js"></script>
+    <script src="js/libs/angular-ui-router.js"></script>
+    <script src="js/libs/ocLazyLoad.js"></script>
+    <script src="js/libs/ui-bootstrap.js"></script>
+    <script src="js/libs/ui-bootstrap-tpls-0.9.0.js"></script>
+    <script src="js/libs/angular-cookies.js"></script>
+	
+	
+	<script src="js/config/app.js"></script>
+    <script src="js/services/util_factory.js" ></script>
+	<script src="js/ctrl/detail_ctrl.js" ></script>
+
+
+</head>
+
+<body ng-app="myApp" ng-controller="detail_ctrl">
+<div class="loaderss" data-loadingss id="loadingss"><i class="fa fa-refresh fa-spin fa-fw"></i> Loading...</div>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span><img src="images/Logo.png"></span> Support</a>
+				
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a></li>
+							<li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
+							<li ng-show="userdata[0].account_type=='Admin'"><a href="admin/index.html"><i class="fa fa-user-secret" aria-hidden="true"></i> Admin Panel</a></li>
+							<li><a href="index.html"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+							
+		</div><!-- /.container-fluid -->
+	</nav>
+		
+	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
+		
+		<ul class="nav menu">
+			<li>
+                            <a href="MyTickets.html" id="load-myticket">
+                                <i class="fa fa-user"></i> <span>My Tickets </span>
+                                <!--<small class="pull-right text-danger">0</small>-->
+                            </a>
+                        </li>
+			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='consultant'" >
+                            <a href="" id="load-unassigned">
+                                <i class="fa fa-th"></i> <span>Unassigned</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='consultant'">
+                            <a href="" id="load-unassigned">
+                                <i class="fa fa-calendar-times-o"></i> <span>Overdue</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			<li>
+                             <a href="">
+                                <i class="fa fa-trash-o"></i> <span>Trash</span>
+                                <!--<small class="pull-right text-danger">1</small>-->
+                            </a>
+                        </li>
+			
+			<li role="presentation" class="divider"></li>
+			<li><a href="index.html"> Login Out</a></li>
+		</ul>
+
+	</div><!--/.sidebar-->
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Tickets</li>
+			</ol>
+		</div><!--/.row-->
+		
+		
+		
+		
+		
+		<section class="content">
+                    <!-- Main content -->
+<div class="panel-default panel">
+    <div class="panel-heading with-border">
+        <h3 class="panel-title" style="width:300px; float: left;">Ticket Details </h3> 
+		
+		<div class="pull-right"  ng-hide="userdata[0].account_type=='Customer' || userdata[0].account_type=='developer'">
+            <!-- <button type="button" class="btn btn-default"><i class="fa fa-edit" style="color:green;"> </i> Edit</button> -->
+                            <button type="button" class="btn btn-default" id="Edit_Ticket" data-toggle="modal" data-target="#Edit"><i class="fa fa-edit" style="color:green;"> </i> Edit</button>
+							<button ng-show="userdata[0].account_type=='TicketManager' || userdata[0].account_type=='Admin'" type="button"  class="btn btn-default" data-toggle="modal" data-target="#assignModal" ng-click="GetUserForAssignment();"><i class="fa fa-hand-o-right" style="color:orange;"> </i> Assign Consultant</button>
+							<button type="button" id="surrender_button" class="btn btn-default" data-toggle="modal" data-target="#surrender"> <i class="fa fa-arrows-alt" style="color:red;"> </i>  Surrender</button>
+							<div class="btn-group">
+								<button type="button" ng-disabled="details.Escalate_type!=''" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="d1"><i class="fa fa-arrow-up"> </i>
+									Escalate<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li ><a href="" ng-click="GetDevManagerList();"  data-toggle="modal" data-target="#devManagerModal" >Development Team</a></li>
+									 <li ><a href="" ng-click="EscalateSAP();">SAP Team</a></li>
+								</ul>
+							</div>
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="d1"><i class="fa fa-exchange" style="color:teal;" id="hidespin"> </i><i class="fa fa-spinner fa-spin" style="color:teal; display:none;" id="spin"></i>
+									Change Status <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li ng-repeat="s in AllStatus"><a href="" ng-click="changeTicketStatus(s.id);"><i class="{{s.icon_class}}"> </i> {{s.name}}</a></li>
+								</ul>
+							</div>
+                            <div id="more-option" class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="d2"><i class="fa fa-cogs" style="color:teal;"> </i>
+                        More <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right">
+                        <li data-toggle="modal" data-target="#ChangeOwner"><a href=""  ng-click="GetOwnersList();"><i class="fa fa-users" style="color:green;"> </i> Change Owner</a></li>
+                                                <li data-toggle="modal" data-target="#MergeTickets"><a href="#"><i class="fa fa-code-fork" style="color:teal;"> </i> Merge ticket</a></li>
+                                                                            <li id="delete"><a href="#"><i class="fa fa-trash-o" style="color:red;"> </i> Delete Ticket</a></li>
+                                                                            <li data-toggle="modal" data-target="#banemail"><a href="#"><i class="fa fa-ban" style="color:red;"></i> Ban Email</a></li>
+                                  </ul>
+                </div>
+                    </div>
+					
+					<div class="pull-right"  ng-show="userdata[0].account_type=='developmentmanager'">
+            <!-- <button type="button" class="btn btn-default"><i class="fa fa-edit" style="color:green;"> </i> Edit</button> -->
+                            
+							<button ng-show="userdata[0].account_type=='developmentmanager'" type="button"  class="btn btn-default" data-toggle="modal" data-target="#DevelopersModal" ng-click="GetDeveloperForAssignment();"><i class="fa fa-hand-o-right" style="color:orange;"> </i> Assign Developer</button>
+							
+							<button type="button" id="surrender_button" class="btn btn-default" data-toggle="modal" data-target="#surrender"> <i class="fa fa-arrows-alt" style="color:red;"> </i>  Surrender</button>
+							
+                           
+                    </div>
+					
+					<div class="pull-right"  ng-show="userdata[0].account_type=='developer'">
+            <!-- <button type="button" class="btn btn-default"><i class="fa fa-edit" style="color:green;"> </i> Edit</button> -->
+							
+							<button type="button" id="surrender_button" class="btn btn-default" data-toggle="modal" data-target="#surrender"> <i class="fa fa-arrows-alt" style="color:red;"> </i>  Surrender</button>
+							
+                           
+                    </div>
+					
+    </div><!-- /.box-header -->
+
+    <div class="panel-body" style="opacity: 1;">
+                <!-- failure message -->
+        
+        <div class="col-lg-12">
+		
+		<div class="col-lg-4"><p><strong>Scenario</strong></p>
+					<p>{{details.Scenario}}</p>
+					</div>
+					<div class="col-lg-4">
+					<p><strong>ExpectedScenario</strong></p>
+					<p>{{details.ExpectedScenario}}</p>
+					</div>
+					<div class="col-lg-4">
+					<p><strong>ActualScenario</strong></p>
+					<p>{{details.ActualScenario}}</p>
+					</div>
+					
+					</div>
+					
+					<div style="padding-top:20px;">
+						
+					<div class="col-lg-9"><table width="100%" class="table table-striped" border="0" cellspacing="5" cellpadding="5">
+  <tr ng-repeat="data in thread">
+    <td id="tdcss{{$index}}">
+	
+	<div ng-click="opwn($index);" style="cursor:pointer;">
+				<div class="col-lg-1" style="width:1%"><i class="fa fa-user"> </i></div>
+				<div class="col-lg-9" style="display:block"><strong>{{data.email}}</strong><br/><div id="subc{{$index}}">{{data.bodyTextSub |htmlToPlaintext | cut:true:50:' ...'}} </div></div>
+				<div class="col-lg-2">18:22 (4h ago)</div>
+				
+				</div>
+	<div id="mainc{{$index}}" style="display:none;padding-top:10px;" class="col-lg-12" ng-bind-html="data.bodyText | trust"></div>
+	
+	
+	</td>
+  </tr>
+  
+  
+</table>
+
+<div ></div>
+
+
+
+</div>
+
+					
+					
+					
+					
+					<div class="col-lg-3"><table class="table table-hover">
+                            <tbody>
+							<tr  ng-if="userdata[0].account_type!='Customer'"><td colspan="2" align="center">
+							
+<div class="btn-group">
+  <button type="button" ng-disabled="GetactivityData.length!=0" ng-click="startActivity(details.id);" class="btn btn-success"><i class="fa fa-play" aria-hidden="true"></i> Start Task</button>
+  <button type="button" class="btn btn-primary" ng-click="endActivity(GetactivityData[0].activity_id);"><i class="fa fa-stop" aria-hidden="true"></i> End Task</button>
+</div>
+
+</td></tr>
+							<tr><td><b>Status:</b></td>       <td title="Open tickets.">{{details.statusName}}</td></tr>
+                                <tr><td><b>Priority:</b></td>     <td title="Normal">{{details.priority}}</td></tr>
+                                <tr>
+                                  <td><b>Escalation type:</b></td>
+                                  <td title="Support">{{details.Escalate_type}}</td>
+                                </tr>
+								<tr>
+                                  <td><b>Escalated Developer:</b></td>
+                                  <td title="Support">{{details.assignedDeveloperName}}</td>
+                                </tr>
+                                <tr><td><b>Department:</b></td>   <td title="Support">{{details.name}}</td></tr>
+                                <tr><td colspan="2"><b>Email:</b><br/>{{details.email}}</td>        </tr>
+                        </tbody></table>
+					<table class="table table-hover">
+                            <tbody><tr><td><b>Mobile:</b></td>          <td>{{details.mobile}}</td></tr>                                <tr><td><b>Source:</b></td>         <td>{{details.sourceName}}</td></tr>
+                                <tr><td><b>Help Topic:</b></td>     <td>{{details.topic}}</td></tr>
+                                <tr><td><b>Last Message:</b></td>   <td> </td></tr>
+                                <tr><td><b>Organization:</b></td>   <td></td></tr>
+                                                            
+                        </tbody></table></div>
+						</div>
+    </div><!-- /.box-body -->
+</div><!-- /. box -->
+
+<div class="container-fluid" style="background:#FFFFFF">
+
+<div class="col-lg-12" style="margin-top:20px;">
+
+<ul class="nav nav-pills" >
+  <li class="active"><a data-toggle="tab" href="#home">Reply</a></li>
+  <li><a data-toggle="tab" href="#menu1">Internal Note</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+<div class="row">
+								<div class="form-group">
+															<div class="col-lg-2">		<label>To</label></div>
+																	<div class="col-lg-10"><input ng-model="details.email" disabled="disabled" id="email" class="form-control" style="width:55%" name="To" type="text" value="{{details.email}}">
+																	<a href="#" data-toggle="modal" data-target="#addccc"> Add CC </a></div>
+																</div>
+								<div class="col-lg-12">&nbsp;</div>
+								<div class="form-group">
+									<div class="col-lg-2"><label>Response</label></div>
+									<div class="col-lg-10"><select ng-model="reply_cannedResponce"  class="form-control" style="width:55%" id="select">
+
+                                                                                          
+                                        <option value="zzz">Select a Canned Response</option>
+                                                                                <option value="1">Ticket accepted Reply</option>
+                                                                                <option value="2">Issue Fixed Reply</option>
+                                                                                                                    </select></div>
+								</div>
+								<div class="col-lg-12">&nbsp;</div>
+								<div class="form-group">
+									<div class="col-lg-2"><label>Content</label></div>
+									<div class="col-lg-10"><textarea ckEditor ng-model="reply_body"   name="editor1" id="editor1" class="form-control" style="height:150px;"></textarea></div>
+								</div>
+								<div class="col-lg-12">&nbsp;</div>
+								<div class="pull-right"><button type="button" ng-click="reply();" class="btn-primary btn">Reply</button></div>
+    
+								
+	
+	</div>							
+								
+  </div>
+  <div id="menu1" class="tab-pane fade">
+   <div class="row">
+								
+								
+								
+								
+								<div class="form-group">
+									<div class="col-lg-2"><label>Content</label></div>
+									<div class="col-lg-10"><textarea class="form-control" ng-model="INreplyBody" style="height:150px;"></textarea></div>
+								</div>
+								<div class="col-lg-12">&nbsp;</div>
+								<div class="pull-right"><button type="button" ng-click="INreply();" class="btn-primary btn">Submit</button></div>
+    
+								
+	
+	</div>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+                </section>
+	</div>	<!--/.main-->
+
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">  CKEDITOR.replace( 'editor1' );</script>
+	
+</body>
+
+
+<!--Assign  Modal -->   
+<div class="modal fade in" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                
+                <div class="modal-body" id="custom-alert-body">
+				<table width="100%" border="0" cellspacing="5" cellpadding="5" class="table">
+  <tr style="background:#CCCCCC">
+    <th>Email</th>
+    <th>Department</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" placeholder="Enter Consultant Email" ng-model="searchtext.email" /></td>
+    <td><input type="text" class="form-control" placeholder="Enter Department" ng-model="searchtext.name" /></td>
+    <td><i class="fa fa-search"></i></td>
+  </tr>
+    <tr ng-repeat="a in agentList |filter:searchtext">
+    <td>{{a.email}}</td>
+    <td>{{a.name}}</td>
+    <td><button type="button" class="btn-info btn" ng-click="AssignUser(a.id,a.email);">Assign</button></td>
+  </tr>
+  
+</table>
+
+<button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Development manager  Modal -->   
+<div class="modal fade in" id="devManagerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                
+                <div class="modal-body" id="custom-alert-body">
+				<table width="100%" border="0" cellspacing="5" cellpadding="5" class="table">
+  <tr style="background:#CCCCCC">
+    <th>Email</th>
+    <th>Department</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" placeholder="Enter Email" ng-model="searchtext.email" /></td>
+    <td><input type="text" class="form-control" placeholder="Enter Department" ng-model="searchtext.name" /></td>
+    <td><i class="fa fa-search"></i></td>
+  </tr>
+    <tr ng-repeat="a in DevManagerList |filter:searchtext">
+    <td>{{a.email}}</td>
+    <td>{{a.name}}</td>
+    <td><button type="button" class="btn-info btn" ng-click="EscalateToDevManager(a.id,a.email);">Escalate</button></td>
+  </tr>
+  
+</table>
+
+<button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Escalate to sap Modal -->   
+<div class="modal fade in" id="SAPManagerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+     <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Escalate to SAP</h4>
+      </div>
+      <div class="modal-body">
+	  <label>Internal Note</label>
+        <textarea class="form-control" ng-model="ETOSAPBody" id="textareaID" style="height:200px;"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="INreplyETOSAP();">Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--DevelopersModal manager  Modal -->   
+<div class="modal fade in" id="DevelopersModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                
+                <div class="modal-body" id="custom-alert-body">
+				<table width="100%" border="0" cellspacing="5" cellpadding="5" class="table">
+  <tr style="background:#CCCCCC">
+    <th>Email</th>
+    <th>Department</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" placeholder="Enter Email" ng-model="searchtext.email" /></td>
+    <td><input type="text" class="form-control" placeholder="Enter Department" ng-model="searchtext.name" /></td>
+    <td><i class="fa fa-search"></i></td>
+  </tr>
+    <tr ng-repeat="a in Developers |filter:searchtext">
+    <td>{{a.email}}</td>
+    <td>{{a.name}}</td>
+    <td><button type="button" class="btn-info btn" ng-click="assignDeveloper(a.id,a.email);">Select</button></td>
+  </tr>
+  
+</table>
+
+<button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--customer  Modal -->   
+<div class="modal fade in" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document" style="width:800px;">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                
+                <div class="modal-body" id="custom-alert-body">
+				<table width="100%" border="0" cellspacing="5" cellpadding="5" class="table">
+  <tr style="background:#CCCCCC">
+    <th>Email</th>
+    <th>Organization</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><input type="text" class="form-control" placeholder="Enter consultant Email" ng-model="searchtext.email" /></td>
+    <td><input type="text" class="form-control" placeholder="Enter Department" ng-model="searchtext.name" /></td>
+    <td><i class="fa fa-search"></i></td>
+  </tr>
+    <tr ng-repeat="a in CustomersList |filter:searchtext">
+    <td>{{a.email}}</td>
+    <td>{{a.name}}</td>
+    <td><button type="button" class="btn-info btn" ng-click="changeOwner(a.id,a.email);">Select</button></td>
+  </tr>
+  
+</table>
+
+<button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Custome Modal -->
+<div id="info" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" ng-show="if(infoheader)">
+        <h4 class="modal-title">{{infoheader}}</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-{{type}}" style="text-align:center;font-size:16px;"><strong>{{infobody}}</strong></p>
+      </div>
+      <div class="modal-footer" >
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</html>

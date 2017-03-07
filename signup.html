@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support - Login</title>
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
+
+
+
+<script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/angular.js"></script>
+    <script src="js/libs/angular-route.js"></script>
+    <script src="js/libs/angular-ui-router.js"></script>
+    <script src="js/libs/ocLazyLoad.js"></script>
+    <script src="js/libs/ui-bootstrap.js"></script>
+    <script src="js/libs/ui-bootstrap-tpls-0.9.0.js"></script>
+    <script src="js/libs/angular-cookies.js"></script>
+	
+	
+	<script src="js/config/app.js"></script>
+    <script src="js/services/util_factory.js" ></script>
+	<script src="js/ctrl/signup_ctrl.js" ></script>
+</head>
+
+<body style="background:#f1f4f7;" ng-app="myApp" ng-controller="signup">
+<div class="loaderss" data-loadingss id="loadingss"><i class="fa fa-refresh fa-spin fa-fw"></i> Loading...</div>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"><span><img src="images/Logo.png"></span> Support</a>
+				<ul class="user-menu">
+					<!--<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+						</ul>
+					</li>-->
+				</ul>
+			</div>
+							
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div class="col-lg-12" style="margin-top:20px;">
+	<div class="col-xs-offset-1 col-lg-6">
+			<div class="login-panel panel panel-default">
+				<div class="panel-heading"><i class="fa fa-user-plus" aria-hidden="true"></i> Create your Account</div>
+				<div class="panel-body">
+					<form role="form">
+						<fieldset>
+					
+							<div class="form-group">
+								<input class="form-control" placeholder="First Name" ng-model="FirstName" name="name" type="text" >
+							</div>
+							<div class="form-group">
+								<input class="form-control" placeholder="Last Name" ng-model="LastName" name="name" type="text">
+							</div>
+							<div class="form-group">
+							<select class="form-control" ng-model="gender">
+								<option value="">--Select Gender---</option>
+								<option value="1">Male</option>
+								<option value="0">Female</option>
+								<option value="2">Other</option>
+							</select>
+							</div>
+							<div class="form-group">
+								<input class="form-control" ng-model="email" placeholder="Enter Email ID" />
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="password" ng-model="password" placeholder="Enter Password" />
+							</div>
+							<div class="form-group">
+								<input class="form-control" ng-model="ConfirmPassword" type="password" placeholder="Enter Confirm Password" />
+							</div>
+							<div class="form-group col-lg-12" style="padding-left:0px;padding-right:0px;" >
+							<div class="col-sm-2" style="padding:0px;">
+								<input type="text" class="form-control" ng-model="country_code" placeholder="Code"/>
+								</div>
+								<div class="col-sm-10" style="padding-right:0px;">
+								<input type="text" class="form-control" ng-model="phone_number" placeholder="Enter Phone number"/>
+								</div>
+							</div>
+							<div class="form-group col-lg-12" style="padding-left:0px;padding-right:0px;" >
+							<div class="col-sm-2" style="padding:0px;">
+								Applying for:
+								</div>
+								<div class="col-sm-10" style="padding-right:0px;">
+								<select class="form-control" ng-model="account_type">
+								<option ng-repeat="a in AccountType" value="{{a.account_type}}">{{a.account_type}}</option>
+							</select>
+								</div>
+							
+							
+							</div>
+							
+							<div class="form-group">
+							<div class="col-lg-9"><div class="g-recaptcha" data-sitekey="6Lds8Q4UAAAAAABTaKkGYkFrT8t92Vxa0AJYSj-H"></div></div>
+							<div class="col-lg-3" style="padding-top:15px;"><button type="button" class="btn btn-lg btn-primary" ng-click="CreateNewUser();">Submit</button></div>
+									
+								
+							</div>
+							
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!-- /.col-->
+	</div><!-- /.row -->	
+	
+		
+
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script>
+		!function ($) {
+			$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
+				$(this).find('em:first').toggleClass("glyphicon-minus");	  
+			}); 
+			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function () {
+		  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function () {
+		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+		})
+	</script>	
+</body>
+
+</html>
