@@ -651,7 +651,7 @@ function GetAllTickect($d)
 	}
 	else if($d["account_type"]=="Customer")
 	{
-	$stSql = "SELECT a.*, b.*,c.first_name as 'AssignedTOName'  FROM tickets a LEFT JOIN ticket_priority b ON a.priority_id=b.priority_id  LEFT JOIN users c ON a.assigned_to=c.id where a.user_id='".$d['UserID']."'  ORDER BY a.ticket_number DESC";
+	 $stSql = "SELECT a.*, b.*,c.first_name as 'AssignedTOName', d.user_name  'customberName',s.name as 'TicketStatus'   FROM tickets a LEFT JOIN ticket_priority b ON a.priority_id=b.priority_id  LEFT JOIN users c ON a.assigned_to=c.id  LEFT JOIN users d ON a.user_id=d.id  LEFT JOIN ticket_status s ON a.status=s.id where a.user_id='".$d['UserID']."'  ORDER BY a.ticket_number DESC";
 	}
 	else if($d["account_type"]=="developmentmanager")
 	{

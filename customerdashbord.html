@@ -45,8 +45,12 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span><img src="images/Logo.png"></span> Support</a>
+				<a class="navbar-brand" href="#"><span><img src="images/Logo.png"></span> Abeo International Pte Ltd</a>
 				<ul class="user-menu">
+				<li class="dropdown pull-left">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Welcome <strong>{{userdata[0].user_name}}</strong> &nbsp;</a>
+						
+					</li>
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
@@ -72,8 +76,14 @@
 		<ul class="nav menu">
 			<li>
                             <a href="MyTickets.html" id="load-myticket">
-                                <i class="fa fa-user"></i> <span>My Tickets </span>
+                                <i class="fa fa-ticket"></i> <span>Open tickets</span>
                                 <!--<small class="pull-right text-danger">0</small>-->
+                            </a>
+                        </li>
+						<li  ng-show="userdata[0].account_type=='Customer'" >
+                            <a href="alltickets.html" id="load-unassigned">
+                                <i class="fa fa-ticket"></i> <span>All tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
                             </a>
                         </li>
 			<li  ng-show="userdata[0].account_type=='Customer'" >
