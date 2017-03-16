@@ -2,7 +2,7 @@ App.service('util_SERVICE', ['$http', '$window', '$cookieStore', '$rootScope', f
     var urlsd = window.location.href.split("/");
     //this.url = "http://192.168.0.38:82/DOService.asmx/";
 	//this.Burl = "http://192.168.0.38:82";
-	this.url = "http://localhost:8080/support/api/api.php";
+	this.url = "http://54.251.51.69:8012/support/trunk/api/api.php";
 	this.APIKEY = "kkksjjshjhjewfndsafjnenfaeeadadw";
 	
 	

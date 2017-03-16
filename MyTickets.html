@@ -74,7 +74,7 @@
 			</div>
 		</form>
 		
-		<ul class="nav menu">
+		<ul class="nav menu" ng-show="userdata[0].account_type=='Customer'">
 			<li>
                             <a href="MyTickets.html" id="load-myticket">
                                 <i class="fa fa-ticket"></i> <span>Open tickets</span>
@@ -93,15 +93,13 @@
                                 <!--<small class="pull-right text-danger">2</small>-->
                             </a>
                         </li>
-						
-						
-			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='Agent'" >
+			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='consultant'" >
                             <a href="" id="load-unassigned">
                                 <i class="fa fa-th"></i> <span>Unassigned</span>
                                 <!--<small class="pull-right text-danger">2</small>-->
                             </a>
                         </li>
-			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='Agent'">
+			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='consultant'">
                             <a href="" id="load-unassigned">
                                 <i class="fa fa-calendar-times-o"></i> <span>Overdue</span>
                                 <!--<small class="pull-right text-danger">2</small>-->
@@ -115,7 +113,37 @@
                         </li>
 			
 			<li role="presentation" class="divider"></li>
-			<li><a href="index.html">  Logout</a></li>
+			<li><a href="index.html"> Logout</a></li>
+		</ul>
+		
+		<ul class="nav menu" ng-show="userdata[0].account_type=='consultant'">
+			<li>
+                            <a href="MyTickets.html" id="load-myticket">
+                                <i class="fa fa-ticket"></i> <span>All tickets</span>
+                                <!--<small class="pull-right text-danger">0</small>-->
+                            </a>
+                        </li>
+						<li >
+                            <a href="alltickets.html" id="load-unassigned">
+                                <i class="fa fa-ticket"></i> <span>My Open Tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+						<li >
+                            <a href="customerdashbord.html" id="load-unassigned">
+                                <i class="fa fa-th"></i> <span>Open Tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			<li >
+                            <a href="" id="load-unassigned">
+                                <i class="fa fa-th"></i> <span>Overdue Tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			
+			<li role="presentation" class="divider"></li>
+			<li><a href="index.html"> Logout</a></li>
 		</ul>
 
 	</div><!--/.sidebar-->

@@ -74,7 +74,7 @@
 			</div>
 		</form>
 		
-		<ul class="nav menu">
+		<ul class="nav menu" ng-show="userdata[0].account_type=='Customer'">
 			<li>
                             <a href="MyTickets.html" id="load-myticket">
                                 <i class="fa fa-ticket"></i> <span>Open tickets</span>
@@ -87,7 +87,7 @@
                                 <!--<small class="pull-right text-danger">2</small>-->
                             </a>
                         </li>
-			<li  ng-show="userdata[0].account_type=='Customer'" >
+						<li  ng-show="userdata[0].account_type=='Customer'" >
                             <a href="customerdashbord.html" id="load-unassigned">
                                 <i class="fa fa-th"></i> <span>Dashboard</span>
                                 <!--<small class="pull-right text-danger">2</small>-->
@@ -113,7 +113,37 @@
                         </li>
 			
 			<li role="presentation" class="divider"></li>
-			<li><a href="index.html"> Login Out</a></li>
+			<li><a href="index.html"> Logout</a></li>
+		</ul>
+		
+		<ul class="nav menu" ng-show="userdata[0].account_type=='consultant'">
+			<li>
+                            <a href="MyTickets.html" id="load-myticket">
+                                <i class="fa fa-ticket"></i> <span>All tickets</span>
+                                <!--<small class="pull-right text-danger">0</small>-->
+                            </a>
+                        </li>
+						<li >
+                            <a href="alltickets.html" id="load-unassigned">
+                                <i class="fa fa-ticket"></i> <span>My Open Tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+						<li >
+                            <a href="customerdashbord.html" id="load-unassigned">
+                                <i class="fa fa-th"></i> <span>Open Tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			<li >
+                            <a href="" id="load-unassigned">
+                                <i class="fa fa-th"></i> <span>Overdue Tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			
+			<li role="presentation" class="divider"></li>
+			<li><a href="index.html"> Logout</a></li>
 		</ul>
 
 	</div><!--/.sidebar-->
@@ -143,10 +173,8 @@
         <form method="POST" action="" accept-charset="UTF-8" id="modalpopup"><input name="_token" type="hidden" value="ijHPFLya2de6wLWaSjlxBUaXp0jljaOwAK2vFjSm">
         <!--<div class="mailbox-controls">-->
         <!-- Check all button -->
-        <a class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></a>
-                <input type="submit" class="submit btn btn-default text-orange btn-sm" id="delete" name="submit" value="Delete">
-        <input type="submit" class="submit btn btn-default text-yellow btn-sm" id="close" name="submit" value="Close">
-        <button  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='Agent'" type="button" class="btn btn-sm btn-default text-green" id="Edit_Ticket" data-toggle="modal" data-target="#MergeTickets"><i class="fa fa-code-fork"> </i> Merge</button>
+        
+           
         <!--</div>-->
         <p></p><p>
         </p><div class="mailbox-messages" id="refresh">
@@ -154,7 +182,22 @@
             <!-- table -->
             <div id="1DcVVETq_wrapper" class="dataTables_wrapper form-inline no-footer"><div class="row"><div class="col-xs-6"><div class="dataTables_length" id="1DcVVETq_length"><!--<label><select name="1DcVVETq_length" aria-controls="1DcVVETq" class="form-control input-xs"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> Records per page</label>--></div></div><div class="col-xs-6"><div id="1DcVVETq_filter" class="dataTables_filter"><label>Search: <input type="search" class="form-control input-xs" placeholder="" aria-controls="1DcVVETq"></label></div></div><div id="1DcVVETq_processing" class="dataTables_processing" style="display: none;"><img id="blur-bg" class="backgroundfadein" style="top: 40%; left: 50%; width: 50px; display: block; position: fixed; opacity: 1; z-index: 99999;" src="http://www.faveohelpdesk.com/demo/helpdesk/lb-faveo//media/images/gifloader3.gif"></div></div>
 			
-			<table width="100%" border="0" cellspacing="5" class="table table-hover table-bordered table-striped" cellpadding="5">
+			<table width="100%" border="0" cellspacing="5" class="table table-hover" cellpadding="5">
+			 	<tr ng-repeat="d in MAILLIST | filter :SearchText">
+			 		<td><table width="100%" border="0">
+  <tr>
+    <td style="width:3%;"><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td  style="width:57%;"><div>#{{d.ticket_number}} &nbsp; &nbsp; <a href="detail.html?id={{d.id}}" style="color:#333333;font-weight:bold;" >{{d.Subject}}</a></div>
+	<div style="font-size:12px;margin-top:5px;">from : {{d.customberName}} <!--<span style="color:#999999">Priority: {{d.priority}}</span>--> </div></td>
+    <td style="width:20%;">{{d.AssignedTOName}}</td>
+    <td style="width:10%;">{{d.TicketStatus}}</td>
+  </tr>
+</table>
+</td>
+			 	</tr>
+			</table>
+			
+			<!--<table width="100%" border="0" cellspacing="5" class="table table-hover table-bordered table-striped" cellpadding="5">
   <tr>
     <th>&nbsp;</th>
     <th>Subject</th>
@@ -164,43 +207,16 @@
     <th>Assigned To</th>
     <th>Last Activity</th>
   </tr>
-  <!--<tr>
-    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
-    <td><a href="detail.html" title="www dsfs fd">My OTP prob<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
-    <td><a href="">#AAAA-0000-002</a></td>
-    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
-    <td>Thomshdhd </td>
-    <td><a href="#">Demo Admin</a></td>
-    <td>15/12/2016 22:08:23</td>
-  </tr>
-  <tr>
-    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
-    <td><a href="detail.html" title="www dsfs fd">Www dsfs fd&nbsp;<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
-    <td><a href="">#AAAA-0000-002</a></td>
-    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
-    <td>Thomshdhd </td>
-    <td><a href="#">Demo Admin</a></td>
-    <td>15/12/2016 22:08:23</td>
-  </tr>
-  <tr>
-    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
-    <td><a href="#" title="www dsfs fd">Www dsfs fd&nbsp;<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
-    <td><a href="">#AAAA-0000-002</a></td>
-    <td><button class="btn btn-default btn-xs" style="background-color: #367FA9">Normal</button></td>
-    <td>Thomshdhd </td>
-    <td><a href="#">Demo Admin</a></td>
-    <td>15/12/2016 22:08:23</td>
-  </tr>-->
   <tr ng-repeat="d in MAILLIST">
     <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
-    <td><a href="detail.html?id={{d.id}}" title="">{{d.Subject}}<!--<span style="color:green">(1)<i class="fa fa-envelope"></i></span>--></a></td>
+    <td><a href="detail.html?id={{d.id}}" title="">{{d.Subject}}<!--<span style="color:green">(1)<i class="fa fa-envelope"></i></span></a></td>
     <td><a href="" ng-click="GetMailById(d.Val);">#{{d.ticket_number}}</a></td>
     <td><button class="btn btn-default btn-xs" style="background-color: {{d.priority_color}};color:#FFFFFF;">{{d.priority}}</button></td>
     <td>{{d.user_id}} </td>
     <td><a href="#">{{d.AssignedTOName}}</a></td>
     <td>{{d.created_at}}</td>
   </tr>
-</table>
+</table>-->
 
 			
 			

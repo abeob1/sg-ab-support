@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support - detail</title>
+<title> Abeo International Pte Ltd</title>
 
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/datepicker3.css" rel="stylesheet">
 <link href="css/styles.css" rel="stylesheet">
 <link href="css/font-awesome.min.css" rel="stylesheet">
+
 
 <!--Icons-->
 <script src="js/lumino.glyphs.js"></script>
@@ -29,6 +30,11 @@
 	<script src="js/config/app.js"></script>
     <script src="js/services/util_factory.js" ></script>
 	<script src="js/ctrl/detail_ctrl.js" ></script>
+
+
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 
 
 </head>
@@ -74,7 +80,7 @@
 			</div>
 		</form>
 		
-		<ul class="nav menu">
+		<ul class="nav menu" ng-show="userdata[0].account_type=='Customer'">
 			<li>
                             <a href="MyTickets.html" id="load-myticket">
                                 <i class="fa fa-ticket"></i> <span>Open tickets</span>
@@ -115,6 +121,36 @@
 			<li role="presentation" class="divider"></li>
 			<li><a href="index.html"> Logout</a></li>
 		</ul>
+		
+		<ul class="nav menu" ng-show="userdata[0].account_type=='consultant'">
+			<li>
+                            <a href="MyTickets.html" id="load-myticket">
+                                <i class="fa fa-ticket"></i> <span>All tickets</span>
+                                <!--<small class="pull-right text-danger">0</small>-->
+                            </a>
+                        </li>
+						<li >
+                            <a href="alltickets.html" id="load-unassigned">
+                                <i class="fa fa-ticket"></i> <span>My Open Tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+						<li >
+                            <a href="customerdashbord.html" id="load-unassigned">
+                                <i class="fa fa-th"></i> <span>Open Tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			<li >
+                            <a href="" id="load-unassigned">
+                                <i class="fa fa-th"></i> <span>Overdue Tickets</span>
+                                <!--<small class="pull-right text-danger">2</small>-->
+                            </a>
+                        </li>
+			
+			<li role="presentation" class="divider"></li>
+			<li><a href="index.html"> Logout</a></li>
+		</ul>
 
 	</div><!--/.sidebar-->
 		
@@ -139,8 +175,8 @@
 		<div class="pull-right"  ng-hide="userdata[0].account_type=='Customer' || userdata[0].account_type=='developer'">
             <!-- <button type="button" class="btn btn-default"><i class="fa fa-edit" style="color:green;"> </i> Edit</button> -->
                             <button type="button" class="btn btn-default" id="Edit_Ticket" data-toggle="modal" data-target="#Edit"><i class="fa fa-edit" style="color:green;"> </i> Edit</button>
-							<button ng-show="userdata[0].account_type=='TicketManager' || userdata[0].account_type=='Admin'" type="button"  class="btn btn-default" data-toggle="modal" data-target="#assignModal" ng-click="GetUserForAssignment();"><i class="fa fa-hand-o-right" style="color:orange;"> </i> Assign Consultant</button>
-							<button type="button" id="surrender_button" class="btn btn-default" data-toggle="modal" data-target="#surrender"> <i class="fa fa-arrows-alt" style="color:red;"> </i>  Surrender</button>
+								<!-- <button ng-show="userdata[0].account_type=='TicketManager' || userdata[0].account_type=='Admin'" type="button"  class="btn btn-default" data-toggle="modal" data-target="#assignModal" ng-click="GetUserForAssignment();"><i class="fa fa-hand-o-right" style="color:orange;"> </i> Assign Consultant</button>
+						 <button type="button" id="surrender_button" class="btn btn-default" data-toggle="modal" data-target="#surrender"> <i class="fa fa-arrows-alt" style="color:red;"> </i>  Surrender</button>
 							<div class="btn-group">
 								<button type="button" ng-disabled="details.Escalate_type!=''" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="d1"><i class="fa fa-arrow-up"> </i>
 									Escalate<span class="caret"></span>
@@ -157,7 +193,7 @@
 								<ul class="dropdown-menu">
 									<li ng-repeat="s in AllStatus"><a href="" ng-click="changeTicketStatus(s.id);"><i class="{{s.icon_class}}"> </i> {{s.name}}</a></li>
 								</ul>
-							</div>
+							</div> -->
                             <div id="more-option" class="btn-group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="d2"><i class="fa fa-cogs" style="color:teal;"> </i>
                         More <span class="caret"></span>
@@ -174,9 +210,9 @@
 					<div class="pull-right"  ng-show="userdata[0].account_type=='developmentmanager'">
             <!-- <button type="button" class="btn btn-default"><i class="fa fa-edit" style="color:green;"> </i> Edit</button> -->
                             
-							<button ng-show="userdata[0].account_type=='developmentmanager'" type="button"  class="btn btn-default" data-toggle="modal" data-target="#DevelopersModal" ng-click="GetDeveloperForAssignment();"><i class="fa fa-hand-o-right" style="color:orange;"> </i> Assign Developer</button>
+						<!-- 	<button ng-show="userdata[0].account_type=='developmentmanager'" type="button"  class="btn btn-default" data-toggle="modal" data-target="#DevelopersModal" ng-click="GetDeveloperForAssignment();"><i class="fa fa-hand-o-right" style="color:orange;"> </i> Assign Developer</button>
 							
-							<button type="button" id="surrender_button" class="btn btn-default" data-toggle="modal" data-target="#surrender"> <i class="fa fa-arrows-alt" style="color:red;"> </i>  Surrender</button>
+							<button type="button" id="surrender_button" class="btn btn-default" data-toggle="modal" data-target="#surrender"> <i class="fa fa-arrows-alt" style="color:red;"> </i>  Surrender</button> -->
 							
                            
                     </div>
@@ -184,7 +220,7 @@
 					<div class="pull-right"  ng-show="userdata[0].account_type=='developer'">
             <!-- <button type="button" class="btn btn-default"><i class="fa fa-edit" style="color:green;"> </i> Edit</button> -->
 							
-							<button type="button" id="surrender_button" class="btn btn-default" data-toggle="modal" data-target="#surrender"> <i class="fa fa-arrows-alt" style="color:red;"> </i>  Surrender</button>
+						<!-- 	<button type="button" id="surrender_button" class="btn btn-default" data-toggle="modal" data-target="#surrender"> <i class="fa fa-arrows-alt" style="color:red;"> </i>  Surrender</button> -->
 							
                            
                     </div>
@@ -221,8 +257,12 @@
 				<div class="col-lg-9" style="display:block"><strong>{{data.email}}</strong><br/><div id="subc{{$index}}">{{data.bodyTextSub |htmlToPlaintext | cut:true:50:' ...'}} </div></div>
 				<div class="col-lg-2">18:22 (4h ago)</div>
 				
+				
+				
 				</div>
 	<div id="mainc{{$index}}" style="display:none;padding-top:10px;" class="col-lg-12" ng-bind-html="data.bodyText | trust"></div>
+	
+	
 	
 	
 	</td>
@@ -231,8 +271,46 @@
   
 </table>
 
+
+<div class="btn-group" id="Rainc" style="display:none">
+  <button type="button" class="btn btn-default" onClick="$('#homeReply').css('display','block');"><i class="fa fa-reply" aria-hidden="true"></i>  Reply</button>
+  <button type="button" class="btn btn-default"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply All</button>
+  <button type="button" class="btn btn-default"><i class="fa fa-share" aria-hidden="true"></i> Forward</button>
+</div>
 <div ></div>
 
+
+<div id="homeReply"  style="display:none;margin-top:100px;">
+<div class="row">
+								<div class="form-group">
+															<div class="col-lg-2">		<label>To</label></div>
+																	<div class="col-lg-10"><input ng-model="details.email" disabled="disabled" id="email" class="form-control" style="width:55%" name="To" type="text" value="{{details.email}}">
+																	<a href="#" data-toggle="modal" data-target="#addccc"> Add CC </a></div>
+																</div>
+								<div class="col-lg-12">&nbsp;</div>
+								<div class="form-group">
+									<div class="col-lg-2"><label>Response</label></div>
+									<div class="col-lg-10"><select ng-model="reply_cannedResponce"  class="form-control" style="width:55%" id="select">
+
+                                                                                          
+                                        <option value="zzz">Select a Canned Response</option>
+                                                                                <option value="1">Ticket accepted Reply</option>
+                                                                                <option value="2">Issue Fixed Reply</option>
+                                                                                                                    </select></div>
+								</div>
+								<div class="col-lg-12">&nbsp;</div>
+								<div class="form-group">
+									<div class="col-lg-2"><label>Content</label></div>
+									<div class="col-lg-10"><textarea ckEditor ng-model="reply_body"   name="editor1" id="editor1" class="form-control" style="height:150px;"></textarea></div>
+								</div>
+								<div class="col-lg-12">&nbsp;</div>
+								<div class="pull-right"><button type="button" ng-click="reply();" class="btn-primary btn">Reply</button></div>
+    
+								
+	
+	</div>							
+								
+  </div>
 
 
 </div>
@@ -245,24 +323,34 @@
                             <tbody>
 							<tr  ng-if="userdata[0].account_type!='Customer'"><td colspan="2" align="center">
 							
-<div class="btn-group">
+<!--<div class="btn-group">
   <button type="button" ng-disabled="GetactivityData.length!=0" ng-click="startActivity(details.id);" class="btn btn-success"><i class="fa fa-play" aria-hidden="true"></i> Start Task</button>
   <button type="button" class="btn btn-primary" ng-click="endActivity(GetactivityData[0].activity_id);"><i class="fa fa-stop" aria-hidden="true"></i> End Task</button>
-</div>
+</div>-->
+
+
+<span>
+<input type="checkbox" style="width:20px;height:15px;" checked data-toggle="toggle" data-style="ios">
+<button class="btn-primary btn"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+</span>
 
 </td></tr>
 							<tr><td><b>Status:</b></td>       <td title="Open tickets.">{{details.statusName}}</td></tr>
                                 <tr><td><b>Priority:</b></td>     <td title="Normal">{{details.priority}}</td></tr>
                                 <tr>
-                                  <td><b>Escalation type:</b></td>
-                                  <td title="Support">{{details.Escalate_type}}</td>
+                                  <td><b>Total Actual Time spent:</b></td>
+                                  <td title="Support">20hr</td>
                                 </tr>
 								<tr>
-                                  <td><b>Escalated Developer:</b></td>
-                                  <td title="Support">{{details.assignedDeveloperName}}</td>
+                                  <td><b>Total Time charged:</b></td>
+                                  <td title="Support">10hr</td>
                                 </tr>
-                                <tr><td><b>Department:</b></td>   <td title="Support">{{details.name}}</td></tr>
-                                <tr><td colspan="2"><b>Email:</b><br/>{{details.email}}</td>        </tr>
+								
+                                <tr><td colspan="2"><b>Email:</b><br/>{{details.email}}  
+								
+								
+								
+								   <div class="mt5 headerContent rhsbtn" style="display:inline-block"><div onclick="switchButtonOnClose() " id="optionSwitchDiv" class="new-css-btn-left" onmouseover="jQuery('#displayTooltip').show()" onmouseout="jQuery('#displayTooltip').hide()"><div id="optionSwitch" class="switch-gr-div"><div class="switch-outer-div"><div class="switch-inner-div"></div><input type="hidden" name="optionSwitchValue" id="optionSwitchValue" value="Enabled"></div><div id="displayTooltip" class="black-tooltip" style="display: none;">Click to disable Ticket closure notification</div></div></div><a class="new-css-btn-right" href="javascript:;" onclick="var statusVal = getClosedLabel();assignValue('Cases','664d36055a43685926e6e908ade32f1e1667d9c06fa8aae2',encodeURIComponent(statusVal),'Status');jQuery('status_val').val(statusVal);return false;">Close Ticket</a></div></td>        </tr>
                         </tbody></table>
 					<table class="table table-hover">
                             <tbody><tr><td><b>Mobile:</b></td>          <td>{{details.mobile}}</td></tr>                                <tr><td><b>Source:</b></td>         <td>{{details.sourceName}}</td></tr>
@@ -275,7 +363,7 @@
     </div><!-- /.box-body -->
 </div><!-- /. box -->
 
-<div class="container-fluid" style="background:#FFFFFF" ng-hide="userdata[0].account_type=='Customer'">
+<div class="container-fluid" style="background:#FFFFFF" ng-hide="true">
 
 <div class="col-lg-12" style="margin-top:20px;">
 

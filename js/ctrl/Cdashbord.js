@@ -13,16 +13,14 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
  
  $scope.GetAllTickect = function () {
 
-        var data = {"apikey" : US.APIKEY,'method':"GetAllTickect","UserID":$scope.userdata[0].id,"account_type":$scope.userdata[0].account_type}
-
-        var config = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-            }
-        }
+        var data ={
+ "TICKETS": [{
+  "UserID": $scope.userdata[0].id
+ }]
+}
 
         var parms = JSON.stringify(data);
-        $http.post(US.url, "sJsonInput=" + parms, config)
+        $http.post(US.url+'GetCustomerTickets', "sJasonInput=" + parms, US.config)
    .then(
        function (response) {
            // success callback

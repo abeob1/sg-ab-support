@@ -10,36 +10,36 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
 	
 	var url = US.url;
 	
-	US.GetAccountType().then(function (response){$scope.AccountType=response.data.Data;console.log(response.data);});
+	US.GetAccountType().then(function (response){$scope.AccountType=response.data.ACCOUNTTYPE;});
 
 	$scope.CreateNewUser = function () {
-
-       
-		var data = {
-			"apikey" : US.APIKEY,
-			'method':"CreateNewUser",
-			"FirstName" : $scope.FirstName,
-			"LastName" : $scope.LastName,
-			"gender": $scope.gender,
-			"email": $scope.email,
-			"password":  $scope.password,
-			"ConfirmPassword":  $scope.ConfirmPassword,
-			"country_code":  $scope.country_code,
-			"phone_number":  $scope.phone_number,
-			"account_type": $scope.account_type
-			}
+			
+			var data = {
+						 "USERS": [{
+						  "user_name": $scope.FirstName,
+						  "first_name": $scope.FirstName,
+						  "last_name": $scope.LastName,
+						  "gender": $scope.gender,
+						  "email": $scope.email,
+						  "password": $scope.password,
+						  "country_code":$scope.country_code,
+						  "phone_number": $scope.phone_number,
+						  "account_type": $scope.account_type
+						 }]
+						}
 
         var parms = JSON.stringify(data);
-        $http.post(url, "sJsonInput=" + parms, US.config)
+        $http.post(url+'CreateUser', "sJasonInput=" + parms, US.config)
    .then(
        function (response) {
            // success callback
            console.log(response.data);
-           if (response.data.status !=false) {
-              alert(response.data.Data);
+           if (response.data.VALIDATE[0].Status !="False") {
+              alert(response.data.VALIDATE[0].Msg);
+			  window.location = "index.html";
            }
             else
-               alert(response.data.MSG);
+               alert(response.data.VALIDATE[0].Msg);
        },
        function (response) {
            // failure callback

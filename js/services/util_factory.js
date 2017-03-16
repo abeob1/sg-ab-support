@@ -1,6 +1,6 @@
 App.service('util_SERVICE', ['$http', '$window', '$cookieStore', '$rootScope', function ($http, $window, $cookie, $rootScope) {
     var urlsd = window.location.href.split("/");
-    this.url = "http://54.251.51.69:8012/support/trunk/api/api.php";
+    this.url = "http://54.251.51.69:3995/Support.asmx/";
 	//this.Burl = "http://192.168.0.38:82";
 	//this.url = "http://localhost:8080/support/api/api.php";
 	this.APIKEY = "kkksjjshjhjewfndsafjnenfaeeadadw";
@@ -68,8 +68,8 @@ App.service('util_SERVICE', ['$http', '$window', '$cookieStore', '$rootScope', f
 	
 	//Get All Account Types
     this.GetAccountType = function () {
-        var data = {"apikey" : this.APIKEY,'method':"GetAccountType"}
-        var promise = $http.post(this.url, "sJsonInput=" +JSON.stringify(data), this.config)
+        //var data = {"apikey" : this.APIKEY,'method':"GetAccountType"}
+        var promise = $http.post(this.url+'GetAccountType', "", this.config)
    .success(function (response) {
        if (response.returnStatus == 1) {
            return response;

@@ -49,7 +49,13 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
 
     $scope.checklogin = function () {
 
-		var data = {"apikey" : US.APIKEY,'method':"Login","UserName" : $scope.userId, "PassWord" : $scope.password}
+var data = {
+ "USERS": [{
+  "UserName": $scope.userId,
+  "PassWord": $scope.password
+ }]
+}
+		//var data = {"apikey" : US.APIKEY,'method':"Login","UserName" : $scope.userId, "PassWord" : $scope.password}
 
         var config = {
             headers: {
@@ -58,22 +64,22 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
         }
 
         var parms = JSON.stringify(data);
-        $http.post(url, "sJsonInput=" + parms, config)
+        $http.post(url+"LogIn", "sJasonInput=" + parms, config)
    .then(
        function (response) {
            // success callback
            console.log(response.data);
-           if (response.data.status !=false) {
+           if (response.data.VALIDATE[0].Status !="False") {
                //$cookies.put('MenuInfo', JSON.stringify(response.data.MenuInfo));
-               $cookies.put('UserData', JSON.stringify(response.data.Data));
+               $cookies.put('UserData', JSON.stringify(response.data.USERINFO));
                $cookies.put('Islogin', "true");
-			   if(response.data.Data[0].account_type=="Customer")
+			   if(response.data.USERINFO[0].account_type=="Customer")
               		window.location = "customerdashbord.html";
 				else
 					window.location = "dashbord.html";
            }
             else
-               alert(response.data.MSG);
+               alert(response.data.VALIDATE[0].Msg);
        },
        function (response) {
            // failure callback

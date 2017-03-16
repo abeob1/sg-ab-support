@@ -395,15 +395,22 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
 		if(status=='none')
 		{
 			$("#mainc"+elementID).css("display","block");
+			$("#Rainc").css("display","block");
+			
 			$("#subc"+elementID).css("display","none");
 			$("#tdcss"+elementID).css("background-color","#fff");
 			}
 		else
 		{
 			$("#mainc"+elementID).css("display","none");
+			$("#Rainc").css("display","none");
+			$("#homeReply").css("display","none");
 			$("#subc"+elementID).css("display","block");
 			$("#tdcss"+elementID).css("background-color","#f9f9f9");
 			}
+			
+			
+			
 	}
 	
 	//reply to the ticket

@@ -982,7 +982,7 @@ function CreateTicketByNewUser($d)
 		$ActualScenario = $d['ActualScenario'];
 		$subject = $d['subject'];
 	
-	$InsertSql = "INSERT INTO tickets ( ticket_number, user_id, dept_id, team_id, priority_id, help_topic_id, status, rating, ip_address, assigned_to, created_at, Scenario, ExpectedScenario, ActualScenario,Subject,source) VALUES ( '".$ticket_number."', '".$user_id."', '".$dept_id."', '".$team_id."', '".$priority_id."', '".$help_topic_id."', '".$status."', '".$rating."', '".$ip_address."', '".$assigned_to."', '".$created_at."', '".$Scenario."', '".$ExpectedScenario."', '".$ActualScenario."', '".$subject."','1');";
+	echo $InsertSql = "INSERT INTO tickets ( ticket_number, user_id, dept_id, team_id, priority_id, help_topic_id, status, rating, ip_address, assigned_to, created_at, Scenario, ExpectedScenario, ActualScenario,Subject,source) VALUES ( '".$ticket_number."', '".$user_id."', '".$dept_id."', '".$team_id."', '".$priority_id."', '".$help_topic_id."', '".$status."', '".$rating."', '".$ip_address."', '".$assigned_to."', '".$created_at."', '".$Scenario."', '".$ExpectedScenario."', '".$ActualScenario."', '".$subject."','1');";
   	$result = $conn->query($InsertSql);
 	
   	if($result=== TRUE)
