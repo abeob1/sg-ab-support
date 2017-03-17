@@ -1,0 +1,25 @@
+E:\TestIMAP\TestIMAP\bin\Debug\TestIMAP.exe.config
+E:\TestIMAP\TestIMAP\bin\Debug\TestIMAP.exe
+E:\TestIMAP\TestIMAP\bin\Debug\TestIMAP.pdb
+E:\TestIMAP\TestIMAP\bin\Debug\D.Net.EmailClient.dll
+E:\TestIMAP\TestIMAP\bin\Debug\D.Net.EmailInterfaces.dll
+E:\TestIMAP\TestIMAP\bin\Debug\LumiSoft.Net.dll
+E:\TestIMAP\TestIMAP\bin\Debug\D.Net.EmailClient.pdb
+E:\TestIMAP\TestIMAP\bin\Debug\D.Net.EmailInterfaces.pdb
+E:\TestIMAP\TestIMAP\bin\Debug\LumiSoft.Net.pdb
+E:\TestIMAP\TestIMAP\bin\Debug\LumiSoft.Net.xml
+E:\TestIMAP\TestIMAP\obj\x86\Debug\TestIMAP.exe
+E:\TestIMAP\TestIMAP\obj\x86\Debug\TestIMAP.pdb
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\TestIMAP.exe.config
+E:\Support Portal\TestIMAP\TestIMAP\obj\x86\Debug\TestIMAP.exe
+E:\Support Portal\TestIMAP\TestIMAP\obj\x86\Debug\TestIMAP.pdb
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\TestIMAP.exe
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\TestIMAP.pdb
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\D.Net.EmailClient.dll
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\D.Net.EmailInterfaces.dll
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\LumiSoft.Net.dll
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\D.Net.EmailClient.pdb
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\D.Net.EmailInterfaces.pdb
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\LumiSoft.Net.pdb
+E:\Support Portal\TestIMAP\TestIMAP\bin\Debug\LumiSoft.Net.xml
+E:\Support Portal\TestIMAP\TestIMAP\obj\x86\Debug\TestIMAP.csprojResolveAssemblyReference.cache

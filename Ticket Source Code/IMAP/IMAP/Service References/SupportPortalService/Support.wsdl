@@ -1,0 +1,1416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogIn_OLD">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogIn_OLDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogInResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCustomerTickets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerTicketsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTickets">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTicketsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetConsultantTickets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConsultantTicketsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllUsers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllUsersResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllConsultants">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllConsultantsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AssignTickets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignTicketsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateUserStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserStatusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTicketDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketDetailsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTicketResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateTicketThread">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateTicketThreadResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUnassignedTickets">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUnassignedTicketsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAccountType">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAccountTypeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTicketStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTicketStatusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateTicketStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateTicketStatusResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SetTicketDueDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTicketDueDateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMailNumber">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMailNumberResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCustomerDashboardData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sJasonInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerDashboardDataResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogIn_OLDSoapIn">
+    <wsdl:part name="parameters" element="tns:LogIn_OLD" />
+  </wsdl:message>
+  <wsdl:message name="LogIn_OLDSoapOut">
+    <wsdl:part name="parameters" element="tns:LogIn_OLDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogInSoapIn">
+    <wsdl:part name="parameters" element="tns:LogIn" />
+  </wsdl:message>
+  <wsdl:message name="LogInSoapOut">
+    <wsdl:part name="parameters" element="tns:LogInResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerTickets" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllTickets" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConsultantTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConsultantTickets" />
+  </wsdl:message>
+  <wsdl:message name="GetConsultantTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConsultantTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetAllUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllConsultantsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllConsultants" />
+  </wsdl:message>
+  <wsdl:message name="GetAllConsultantsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllConsultantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssignTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:AssignTickets" />
+  </wsdl:message>
+  <wsdl:message name="AssignTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:AssignTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTicketDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTicketDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTicket" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketThreadSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateTicketThread" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketThreadSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateTicketThreadResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUnassignedTicketsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUnassignedTickets" />
+  </wsdl:message>
+  <wsdl:message name="GetUnassignedTicketsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUnassignedTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountType" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTicketStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllTicketStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTicketStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllTicketStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTicketStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateTicketStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTicketStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateTicketStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTicketDueDateSoapIn">
+    <wsdl:part name="parameters" element="tns:SetTicketDueDate" />
+  </wsdl:message>
+  <wsdl:message name="SetTicketDueDateSoapOut">
+    <wsdl:part name="parameters" element="tns:SetTicketDueDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetMailNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerDashboardDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerDashboardData" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerDashboardDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerDashboardDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogIn_OLDHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogIn_OLDHttpGetOut" />
+  <wsdl:message name="LogInHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogInHttpGetOut" />
+  <wsdl:message name="GetCustomerTicketsHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerTicketsHttpGetOut" />
+  <wsdl:message name="GetAllTicketsHttpGetIn" />
+  <wsdl:message name="GetAllTicketsHttpGetOut" />
+  <wsdl:message name="GetConsultantTicketsHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConsultantTicketsHttpGetOut" />
+  <wsdl:message name="GetAllUsersHttpGetIn" />
+  <wsdl:message name="GetAllUsersHttpGetOut" />
+  <wsdl:message name="GetAllConsultantsHttpGetIn" />
+  <wsdl:message name="GetAllConsultantsHttpGetOut" />
+  <wsdl:message name="AssignTicketsHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AssignTicketsHttpGetOut" />
+  <wsdl:message name="CreateUserHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserHttpGetOut" />
+  <wsdl:message name="UpdateUserStatusHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusHttpGetOut" />
+  <wsdl:message name="GetTicketDetailsHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketDetailsHttpGetOut" />
+  <wsdl:message name="CreateTicketHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketHttpGetOut" />
+  <wsdl:message name="CreateTicketThreadHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketThreadHttpGetOut" />
+  <wsdl:message name="GetUnassignedTicketsHttpGetIn" />
+  <wsdl:message name="GetUnassignedTicketsHttpGetOut" />
+  <wsdl:message name="GetAccountTypeHttpGetIn" />
+  <wsdl:message name="GetAccountTypeHttpGetOut" />
+  <wsdl:message name="GetAllTicketStatusHttpGetIn" />
+  <wsdl:message name="GetAllTicketStatusHttpGetOut" />
+  <wsdl:message name="UpdateTicketStatusHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTicketStatusHttpGetOut" />
+  <wsdl:message name="SetTicketDueDateHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetTicketDueDateHttpGetOut" />
+  <wsdl:message name="GetMailNumberHttpGetIn" />
+  <wsdl:message name="GetMailNumberHttpGetOut" />
+  <wsdl:message name="GetCustomerDashboardDataHttpGetIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerDashboardDataHttpGetOut" />
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogIn_OLDHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogIn_OLDHttpPostOut" />
+  <wsdl:message name="LogInHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogInHttpPostOut" />
+  <wsdl:message name="GetCustomerTicketsHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerTicketsHttpPostOut" />
+  <wsdl:message name="GetAllTicketsHttpPostIn" />
+  <wsdl:message name="GetAllTicketsHttpPostOut" />
+  <wsdl:message name="GetConsultantTicketsHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConsultantTicketsHttpPostOut" />
+  <wsdl:message name="GetAllUsersHttpPostIn" />
+  <wsdl:message name="GetAllUsersHttpPostOut" />
+  <wsdl:message name="GetAllConsultantsHttpPostIn" />
+  <wsdl:message name="GetAllConsultantsHttpPostOut" />
+  <wsdl:message name="AssignTicketsHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AssignTicketsHttpPostOut" />
+  <wsdl:message name="CreateUserHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserHttpPostOut" />
+  <wsdl:message name="UpdateUserStatusHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserStatusHttpPostOut" />
+  <wsdl:message name="GetTicketDetailsHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketDetailsHttpPostOut" />
+  <wsdl:message name="CreateTicketHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketHttpPostOut" />
+  <wsdl:message name="CreateTicketThreadHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateTicketThreadHttpPostOut" />
+  <wsdl:message name="GetUnassignedTicketsHttpPostIn" />
+  <wsdl:message name="GetUnassignedTicketsHttpPostOut" />
+  <wsdl:message name="GetAccountTypeHttpPostIn" />
+  <wsdl:message name="GetAccountTypeHttpPostOut" />
+  <wsdl:message name="GetAllTicketStatusHttpPostIn" />
+  <wsdl:message name="GetAllTicketStatusHttpPostOut" />
+  <wsdl:message name="UpdateTicketStatusHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTicketStatusHttpPostOut" />
+  <wsdl:message name="SetTicketDueDateHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetTicketDueDateHttpPostOut" />
+  <wsdl:message name="GetMailNumberHttpPostIn" />
+  <wsdl:message name="GetMailNumberHttpPostOut" />
+  <wsdl:message name="GetCustomerDashboardDataHttpPostIn">
+    <wsdl:part name="sJasonInput" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerDashboardDataHttpPostOut" />
+  <wsdl:portType name="SupportSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn_OLD">
+      <wsdl:input message="tns:LogIn_OLDSoapIn" />
+      <wsdl:output message="tns:LogIn_OLDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input message="tns:LogInSoapIn" />
+      <wsdl:output message="tns:LogInSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerTickets">
+      <wsdl:input message="tns:GetCustomerTicketsSoapIn" />
+      <wsdl:output message="tns:GetCustomerTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTickets">
+      <wsdl:input message="tns:GetAllTicketsSoapIn" />
+      <wsdl:output message="tns:GetAllTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConsultantTickets">
+      <wsdl:input message="tns:GetConsultantTicketsSoapIn" />
+      <wsdl:output message="tns:GetConsultantTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input message="tns:GetAllUsersSoapIn" />
+      <wsdl:output message="tns:GetAllUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllConsultants">
+      <wsdl:input message="tns:GetAllConsultantsSoapIn" />
+      <wsdl:output message="tns:GetAllConsultantsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTickets">
+      <wsdl:input message="tns:AssignTicketsSoapIn" />
+      <wsdl:output message="tns:AssignTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input message="tns:CreateUserSoapIn" />
+      <wsdl:output message="tns:CreateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <wsdl:input message="tns:UpdateUserStatusSoapIn" />
+      <wsdl:output message="tns:UpdateUserStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketDetails">
+      <wsdl:input message="tns:GetTicketDetailsSoapIn" />
+      <wsdl:output message="tns:GetTicketDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <wsdl:input message="tns:CreateTicketSoapIn" />
+      <wsdl:output message="tns:CreateTicketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketThread">
+      <wsdl:input message="tns:CreateTicketThreadSoapIn" />
+      <wsdl:output message="tns:CreateTicketThreadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnassignedTickets">
+      <wsdl:input message="tns:GetUnassignedTicketsSoapIn" />
+      <wsdl:output message="tns:GetUnassignedTicketsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <wsdl:input message="tns:GetAccountTypeSoapIn" />
+      <wsdl:output message="tns:GetAccountTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketStatus">
+      <wsdl:input message="tns:GetAllTicketStatusSoapIn" />
+      <wsdl:output message="tns:GetAllTicketStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicketStatus">
+      <wsdl:input message="tns:UpdateTicketStatusSoapIn" />
+      <wsdl:output message="tns:UpdateTicketStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketDueDate">
+      <wsdl:input message="tns:SetTicketDueDateSoapIn" />
+      <wsdl:output message="tns:SetTicketDueDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailNumber">
+      <wsdl:input message="tns:GetMailNumberSoapIn" />
+      <wsdl:output message="tns:GetMailNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerDashboardData">
+      <wsdl:input message="tns:GetCustomerDashboardDataSoapIn" />
+      <wsdl:output message="tns:GetCustomerDashboardDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SupportHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn_OLD">
+      <wsdl:input message="tns:LogIn_OLDHttpGetIn" />
+      <wsdl:output message="tns:LogIn_OLDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input message="tns:LogInHttpGetIn" />
+      <wsdl:output message="tns:LogInHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerTickets">
+      <wsdl:input message="tns:GetCustomerTicketsHttpGetIn" />
+      <wsdl:output message="tns:GetCustomerTicketsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTickets">
+      <wsdl:input message="tns:GetAllTicketsHttpGetIn" />
+      <wsdl:output message="tns:GetAllTicketsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConsultantTickets">
+      <wsdl:input message="tns:GetConsultantTicketsHttpGetIn" />
+      <wsdl:output message="tns:GetConsultantTicketsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input message="tns:GetAllUsersHttpGetIn" />
+      <wsdl:output message="tns:GetAllUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllConsultants">
+      <wsdl:input message="tns:GetAllConsultantsHttpGetIn" />
+      <wsdl:output message="tns:GetAllConsultantsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTickets">
+      <wsdl:input message="tns:AssignTicketsHttpGetIn" />
+      <wsdl:output message="tns:AssignTicketsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input message="tns:CreateUserHttpGetIn" />
+      <wsdl:output message="tns:CreateUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <wsdl:input message="tns:UpdateUserStatusHttpGetIn" />
+      <wsdl:output message="tns:UpdateUserStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketDetails">
+      <wsdl:input message="tns:GetTicketDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetTicketDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <wsdl:input message="tns:CreateTicketHttpGetIn" />
+      <wsdl:output message="tns:CreateTicketHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketThread">
+      <wsdl:input message="tns:CreateTicketThreadHttpGetIn" />
+      <wsdl:output message="tns:CreateTicketThreadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnassignedTickets">
+      <wsdl:input message="tns:GetUnassignedTicketsHttpGetIn" />
+      <wsdl:output message="tns:GetUnassignedTicketsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <wsdl:input message="tns:GetAccountTypeHttpGetIn" />
+      <wsdl:output message="tns:GetAccountTypeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketStatus">
+      <wsdl:input message="tns:GetAllTicketStatusHttpGetIn" />
+      <wsdl:output message="tns:GetAllTicketStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicketStatus">
+      <wsdl:input message="tns:UpdateTicketStatusHttpGetIn" />
+      <wsdl:output message="tns:UpdateTicketStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketDueDate">
+      <wsdl:input message="tns:SetTicketDueDateHttpGetIn" />
+      <wsdl:output message="tns:SetTicketDueDateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailNumber">
+      <wsdl:input message="tns:GetMailNumberHttpGetIn" />
+      <wsdl:output message="tns:GetMailNumberHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerDashboardData">
+      <wsdl:input message="tns:GetCustomerDashboardDataHttpGetIn" />
+      <wsdl:output message="tns:GetCustomerDashboardDataHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SupportHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn_OLD">
+      <wsdl:input message="tns:LogIn_OLDHttpPostIn" />
+      <wsdl:output message="tns:LogIn_OLDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input message="tns:LogInHttpPostIn" />
+      <wsdl:output message="tns:LogInHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerTickets">
+      <wsdl:input message="tns:GetCustomerTicketsHttpPostIn" />
+      <wsdl:output message="tns:GetCustomerTicketsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTickets">
+      <wsdl:input message="tns:GetAllTicketsHttpPostIn" />
+      <wsdl:output message="tns:GetAllTicketsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConsultantTickets">
+      <wsdl:input message="tns:GetConsultantTicketsHttpPostIn" />
+      <wsdl:output message="tns:GetConsultantTicketsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input message="tns:GetAllUsersHttpPostIn" />
+      <wsdl:output message="tns:GetAllUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllConsultants">
+      <wsdl:input message="tns:GetAllConsultantsHttpPostIn" />
+      <wsdl:output message="tns:GetAllConsultantsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTickets">
+      <wsdl:input message="tns:AssignTicketsHttpPostIn" />
+      <wsdl:output message="tns:AssignTicketsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input message="tns:CreateUserHttpPostIn" />
+      <wsdl:output message="tns:CreateUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <wsdl:input message="tns:UpdateUserStatusHttpPostIn" />
+      <wsdl:output message="tns:UpdateUserStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketDetails">
+      <wsdl:input message="tns:GetTicketDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetTicketDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <wsdl:input message="tns:CreateTicketHttpPostIn" />
+      <wsdl:output message="tns:CreateTicketHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketThread">
+      <wsdl:input message="tns:CreateTicketThreadHttpPostIn" />
+      <wsdl:output message="tns:CreateTicketThreadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnassignedTickets">
+      <wsdl:input message="tns:GetUnassignedTicketsHttpPostIn" />
+      <wsdl:output message="tns:GetUnassignedTicketsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <wsdl:input message="tns:GetAccountTypeHttpPostIn" />
+      <wsdl:output message="tns:GetAccountTypeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketStatus">
+      <wsdl:input message="tns:GetAllTicketStatusHttpPostIn" />
+      <wsdl:output message="tns:GetAllTicketStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicketStatus">
+      <wsdl:input message="tns:UpdateTicketStatusHttpPostIn" />
+      <wsdl:output message="tns:UpdateTicketStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketDueDate">
+      <wsdl:input message="tns:SetTicketDueDateHttpPostIn" />
+      <wsdl:output message="tns:SetTicketDueDateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailNumber">
+      <wsdl:input message="tns:GetMailNumberHttpPostIn" />
+      <wsdl:output message="tns:GetMailNumberHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerDashboardData">
+      <wsdl:input message="tns:GetCustomerDashboardDataHttpPostIn" />
+      <wsdl:output message="tns:GetCustomerDashboardDataHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SupportSoap" type="tns:SupportSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn_OLD">
+      <soap:operation soapAction="http://tempuri.org/LogIn_OLD" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap:operation soapAction="http://tempuri.org/LogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerTickets">
+      <soap:operation soapAction="http://tempuri.org/GetCustomerTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTickets">
+      <soap:operation soapAction="http://tempuri.org/GetAllTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsultantTickets">
+      <soap:operation soapAction="http://tempuri.org/GetConsultantTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllConsultants">
+      <soap:operation soapAction="http://tempuri.org/GetAllConsultants" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignTickets">
+      <soap:operation soapAction="http://tempuri.org/AssignTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdateUserStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketDetails">
+      <soap:operation soapAction="http://tempuri.org/GetTicketDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <soap:operation soapAction="http://tempuri.org/CreateTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketThread">
+      <soap:operation soapAction="http://tempuri.org/CreateTicketThread" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnassignedTickets">
+      <soap:operation soapAction="http://tempuri.org/GetUnassignedTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <soap:operation soapAction="http://tempuri.org/GetAccountType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketStatus">
+      <soap:operation soapAction="http://tempuri.org/GetAllTicketStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicketStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdateTicketStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketDueDate">
+      <soap:operation soapAction="http://tempuri.org/SetTicketDueDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailNumber">
+      <soap:operation soapAction="http://tempuri.org/GetMailNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerDashboardData">
+      <soap:operation soapAction="http://tempuri.org/GetCustomerDashboardData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SupportSoap12" type="tns:SupportSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn_OLD">
+      <soap12:operation soapAction="http://tempuri.org/LogIn_OLD" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap12:operation soapAction="http://tempuri.org/LogIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerTickets">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomerTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTickets">
+      <soap12:operation soapAction="http://tempuri.org/GetAllTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsultantTickets">
+      <soap12:operation soapAction="http://tempuri.org/GetConsultantTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap12:operation soapAction="http://tempuri.org/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllConsultants">
+      <soap12:operation soapAction="http://tempuri.org/GetAllConsultants" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignTickets">
+      <soap12:operation soapAction="http://tempuri.org/AssignTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap12:operation soapAction="http://tempuri.org/CreateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUserStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetTicketDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <soap12:operation soapAction="http://tempuri.org/CreateTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketThread">
+      <soap12:operation soapAction="http://tempuri.org/CreateTicketThread" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnassignedTickets">
+      <soap12:operation soapAction="http://tempuri.org/GetUnassignedTickets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetAllTicketStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicketStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdateTicketStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketDueDate">
+      <soap12:operation soapAction="http://tempuri.org/SetTicketDueDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailNumber">
+      <soap12:operation soapAction="http://tempuri.org/GetMailNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerDashboardData">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomerDashboardData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SupportHttpGet" type="tns:SupportHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn_OLD">
+      <http:operation location="/LogIn_OLD" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <http:operation location="/LogIn" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerTickets">
+      <http:operation location="/GetCustomerTickets" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTickets">
+      <http:operation location="/GetAllTickets" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetConsultantTickets">
+      <http:operation location="/GetConsultantTickets" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <http:operation location="/GetAllUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllConsultants">
+      <http:operation location="/GetAllConsultants" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTickets">
+      <http:operation location="/AssignTickets" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <http:operation location="/CreateUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <http:operation location="/UpdateUserStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketDetails">
+      <http:operation location="/GetTicketDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <http:operation location="/CreateTicket" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketThread">
+      <http:operation location="/CreateTicketThread" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnassignedTickets">
+      <http:operation location="/GetUnassignedTickets" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <http:operation location="/GetAccountType" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketStatus">
+      <http:operation location="/GetAllTicketStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicketStatus">
+      <http:operation location="/UpdateTicketStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketDueDate">
+      <http:operation location="/SetTicketDueDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailNumber">
+      <http:operation location="/GetMailNumber" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerDashboardData">
+      <http:operation location="/GetCustomerDashboardData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SupportHttpPost" type="tns:SupportHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn_OLD">
+      <http:operation location="/LogIn_OLD" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <http:operation location="/LogIn" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerTickets">
+      <http:operation location="/GetCustomerTickets" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTickets">
+      <http:operation location="/GetAllTickets" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetConsultantTickets">
+      <http:operation location="/GetConsultantTickets" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <http:operation location="/GetAllUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllConsultants">
+      <http:operation location="/GetAllConsultants" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="AssignTickets">
+      <http:operation location="/AssignTickets" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <http:operation location="/CreateUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserStatus">
+      <http:operation location="/UpdateUserStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketDetails">
+      <http:operation location="/GetTicketDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicket">
+      <http:operation location="/CreateTicket" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTicketThread">
+      <http:operation location="/CreateTicketThread" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnassignedTickets">
+      <http:operation location="/GetUnassignedTickets" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountType">
+      <http:operation location="/GetAccountType" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTicketStatus">
+      <http:operation location="/GetAllTicketStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicketStatus">
+      <http:operation location="/UpdateTicketStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketDueDate">
+      <http:operation location="/SetTicketDueDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailNumber">
+      <http:operation location="/GetMailNumber" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerDashboardData">
+      <http:operation location="/GetCustomerDashboardData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Support">
+    <wsdl:port name="SupportSoap" binding="tns:SupportSoap">
+      <soap:address location="http://54.251.51.69:3995/Support.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SupportSoap12" binding="tns:SupportSoap12">
+      <soap12:address location="http://54.251.51.69:3995/Support.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SupportHttpGet" binding="tns:SupportHttpGet">
+      <http:address location="http://54.251.51.69:3995/Support.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SupportHttpPost" binding="tns:SupportHttpPost">
+      <http:address location="http://54.251.51.69:3995/Support.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,27 @@
+E:\IMAP\IMAP\bin\Debug\IMAP.exe
+E:\IMAP\IMAP\bin\Debug\IMAP.pdb
+E:\IMAP\IMAP\obj\x86\Debug\IMAP.exe
+E:\IMAP\IMAP\obj\x86\Debug\IMAP.pdb
+E:\Support Portal\IMAP\IMAP\obj\x86\Debug\IMAP.exe
+E:\Support Portal\IMAP\IMAP\obj\x86\Debug\IMAP.pdb
+E:\Support Portal\IMAP\IMAP\obj\x86\Debug\IMAP.csprojResolveAssemblyReference.cache
+E:\Support Portal\IMAP\IMAP\bin\Debug\IMAP.exe.config
+E:\Support Portal\IMAP\IMAP\bin\Debug\IMAP.exe
+E:\Support Portal\IMAP\IMAP\bin\Debug\IMAP.pdb
+E:\Support Portal\IMAP\IMAP\bin\Debug\D.Net.EmailClient.dll
+E:\Support Portal\IMAP\IMAP\bin\Debug\D.Net.EmailInterfaces.dll
+E:\Support Portal\IMAP\IMAP\bin\Debug\LumiSoft.Net.dll
+E:\Support Portal\IMAP\IMAP\bin\Debug\D.Net.EmailClient.pdb
+E:\Support Portal\IMAP\IMAP\bin\Debug\D.Net.EmailInterfaces.pdb
+E:\Support Portal\IMAP\IMAP\bin\Debug\LumiSoft.Net.pdb
+E:\Support Portal\IMAP\IMAP\bin\Debug\LumiSoft.Net.xml
+D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\IMAP.exe.config
+D:\VIVEK\Support Portal\IMAP\IMAP\obj\x86\Debug\IMAP.exe
+D:\VIVEK\Support Portal\IMAP\IMAP\obj\x86\Debug\IMAP.pdb
+D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\IMAP.exe
+D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\IMAP.pdb
+D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\D.Net.EmailClient.pdb
+D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\D.Net.EmailInterfaces.pdb
+D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\LumiSoft.Net.pdb
+D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\LumiSoft.Net.xml
+D:\VIVEK\Support Portal\IMAP\IMAP\obj\x86\Debug\IMAP.csprojResolveAssemblyReference.cache

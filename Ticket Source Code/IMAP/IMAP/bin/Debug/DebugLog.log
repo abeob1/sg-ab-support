@@ -1,0 +1,196 @@
+[03/16/2017 9:44:04 PM][Main Program] Starting Program
+[03/16/2017 9:44:15 PM][GetMailNumber] Starting Function
+[03/16/2017 9:44:25 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 9:44:56 PM][Main Program] Completed With ERROR  
+[03/16/2017 9:47:11 PM][Main Program] Starting Program
+[03/16/2017 9:47:13 PM][GetMailNumber] Starting Function
+[03/16/2017 9:47:13 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 9:47:14 PM][Main Program] Ending Program
+[03/16/2017 9:47:18 PM][Main Program] Starting Program
+[03/16/2017 9:47:20 PM][GetMailNumber] Starting Function
+[03/16/2017 9:47:20 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 9:48:22 PM][Main Program] Ending Program
+[03/16/2017 9:59:30 PM][Main Program] Starting Program
+[03/16/2017 9:59:33 PM][GetMailNumber] Starting Function
+[03/16/2017 9:59:33 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 9:59:43 PM][Main Program] Ending Program
+[03/16/2017 9:59:46 PM][Main Program] Starting Program
+[03/16/2017 9:59:48 PM][GetMailNumber] Starting Function
+[03/16/2017 9:59:48 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 9:59:51 PM][Main Program] Ending Program
+[03/16/2017 9:59:55 PM][Main Program] Starting Program
+[03/16/2017 9:59:57 PM][GetMailNumber] Starting Function
+[03/16/2017 9:59:57 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:10:59 PM][Main Program] Starting Program
+[03/16/2017 10:11:01 PM][GetMailNumber] Starting Function
+[03/16/2017 10:11:01 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:14:43 PM][Main Program] Starting Program
+[03/16/2017 10:14:45 PM][GetMailNumber] Starting Function
+[03/16/2017 10:14:45 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:16:30 PM][Main Program] Completed With ERROR  
+[03/16/2017 10:16:32 PM][Main Program] Starting Program
+[03/16/2017 10:16:34 PM][GetMailNumber] Starting Function
+[03/16/2017 10:16:34 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:18:16 PM][Main Program] Ending Program
+[03/16/2017 10:18:28 PM][Main Program] Starting Program
+[03/16/2017 10:18:30 PM][GetMailNumber] Starting Function
+[03/16/2017 10:18:30 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:19:32 PM][Main Program] Starting Program
+[03/16/2017 10:19:34 PM][GetMailNumber] Starting Function
+[03/16/2017 10:19:34 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:19:53 PM][Main Program] Starting Program
+[03/16/2017 10:19:56 PM][GetMailNumber] Starting Function
+[03/16/2017 10:19:56 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:44:42 PM][Main Program] Starting Program
+[03/16/2017 10:44:44 PM][GetMailNumber] Starting Function
+[03/16/2017 10:44:44 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:44:48 PM][InsertTicketThread] Starting Function
+[03/16/2017 10:44:48 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 10:45:00 PM][InsertTicketThread] Starting Function
+[03/16/2017 10:45:00 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 10:45:03 PM][Main Program] Ending Program
+[03/16/2017 10:45:06 PM][Main Program] Starting Program
+[03/16/2017 10:45:08 PM][GetMailNumber] Starting Function
+[03/16/2017 10:45:08 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:45:09 PM][InsertTicketThread] Starting Function
+[03/16/2017 10:45:09 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 10:45:18 PM][Main Program] Starting Program
+[03/16/2017 10:45:20 PM][GetMailNumber] Starting Function
+[03/16/2017 10:45:20 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:45:52 PM][InsertTicketThread] Starting Function
+[03/16/2017 10:45:52 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 10:46:05 PM][InsertTicketThread] Starting Function
+[03/16/2017 10:46:05 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 10:46:13 PM][Main Program] Ending Program
+[03/16/2017 10:46:17 PM][Main Program] Starting Program
+[03/16/2017 10:46:19 PM][GetMailNumber] Starting Function
+[03/16/2017 10:46:19 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:46:19 PM][InsertTicketThread] Starting Function
+[03/16/2017 10:46:19 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 10:46:25 PM][Main Program] Starting Program
+[03/16/2017 10:46:27 PM][GetMailNumber] Starting Function
+[03/16/2017 10:46:27 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 10:46:27 PM][InsertTicketThread] Starting Function
+[03/16/2017 10:46:27 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 10:46:31 PM][InsertTicketThread] Starting Function
+[03/16/2017 10:46:31 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:03:17 PM][Main Program] Starting Program
+[03/16/2017 11:03:19 PM][GetMailNumber] Starting Function
+[03/16/2017 11:03:19 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:03:36 PM][Main Program] Starting Program
+[03/16/2017 11:03:38 PM][GetMailNumber] Starting Function
+[03/16/2017 11:03:38 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:03:38 PM][InsertTicketThread] Starting Function
+[03/16/2017 11:03:39 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:03:39 PM][InsertTicketThread] Starting Function
+[03/16/2017 11:03:39 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:07:22 PM][Main Program] Starting Program
+[03/16/2017 11:07:24 PM][GetMailNumber] Starting Function
+[03/16/2017 11:07:24 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:13:57 PM][Main Program] Starting Program
+[03/16/2017 11:13:59 PM][GetMailNumber] Starting Function
+[03/16/2017 11:13:59 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:16:56 PM][Main Program] Starting Program
+[03/16/2017 11:16:58 PM][GetMailNumber] Starting Function
+[03/16/2017 11:16:58 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:16:58 PM][InsertTicketThread] Starting Function
+[03/16/2017 11:16:58 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:16:59 PM][InsertTicketThread] Starting Function
+[03/16/2017 11:16:59 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:20:40 PM][Main Program] Starting Program
+[03/16/2017 11:20:42 PM][GetMailNumber] Starting Function
+[03/16/2017 11:20:42 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:22:57 PM][Main Program] Starting Program
+[03/16/2017 11:22:59 PM][GetMailNumber] Starting Function
+[03/16/2017 11:22:59 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:23:09 PM][InsertTicketThread] Starting Function
+[03/16/2017 11:23:09 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:23:12 PM][InsertTicketThread] Starting Function
+[03/16/2017 11:23:12 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:23:13 PM][Main Program] Ending Program
+[03/16/2017 11:26:58 PM][Main Program] Starting Program
+[03/16/2017 11:27:00 PM][GetMailNumber] Starting Function
+[03/16/2017 11:27:00 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:27:00 PM][InsertTicketThread] Starting Function
+[03/16/2017 11:27:00 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:27:00 PM][InsertTicketThread] Starting Function
+[03/16/2017 11:27:00 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:27:00 PM][Main Program] Ending Program
+[03/16/2017 11:30:43 PM][Main Program] Starting Program
+[03/16/2017 11:30:45 PM][GetMailNumber] Starting Function
+[03/16/2017 11:30:45 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:49:45 PM][Main Program] Starting Program
+[03/16/2017 11:49:45 PM][Main Program] Completed With ERROR  
+[03/16/2017 11:49:55 PM][Main Program] Starting Program
+[03/16/2017 11:49:56 PM][Main Program] Completed With ERROR  
+[03/16/2017 11:50:15 PM][Main Program] Starting Program
+[03/16/2017 11:50:15 PM][Main Program] Completed With ERROR  
+[03/16/2017 11:50:21 PM][Main Program] Starting Program
+[03/16/2017 11:50:21 PM][Main Program] Completed With ERROR  
+[03/16/2017 11:50:42 PM][Main Program] Starting Program
+[03/16/2017 11:50:43 PM][Main Program] Completed With ERROR  
+[03/16/2017 11:53:24 PM][Main Program] Starting Program
+[03/16/2017 11:53:29 PM][GetMailNumber] Starting Function
+[03/16/2017 11:53:29 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:54:00 PM][Main Program] Ending Program
+[03/16/2017 11:55:38 PM][Main Program] Ending Program
+[03/16/2017 11:57:12 PM][Main Program] Starting Program
+[03/16/2017 11:57:16 PM][GetMailNumber] Starting Function
+[03/16/2017 11:57:16 PM][GetMailNumber] Completed with SUCCESS
+[03/16/2017 11:58:03 PM][InsertTicketThread] Starting Function
+[03/16/2017 11:58:03 PM][InsertTicketThread] Completed with SUCCESS
+[03/16/2017 11:58:06 PM][Main Program] Ending Program
+[03/17/2017 12:00:07 AM][Main Program] Starting Program
+[03/17/2017 12:00:13 AM][GetMailNumber] Starting Function
+[03/17/2017 12:00:13 AM][GetMailNumber] Completed with SUCCESS
+[03/17/2017 12:02:09 AM][Main Program] Ending Program
+[03/17/2017 12:02:24 AM][Main Program] Starting Program
+[03/17/2017 12:02:26 AM][GetMailNumber] Starting Function
+[03/17/2017 12:02:26 AM][GetMailNumber] Completed with SUCCESS
+[03/17/2017 12:02:27 AM][InsertTicketThread] Starting Function
+[03/17/2017 12:02:27 AM][InsertTicketThread] Completed with SUCCESS
+[03/17/2017 12:02:27 AM][Main Program] Ending Program
+[03/17/2017 12:17:25 AM][Main Program] Starting Program
+[03/17/2017 12:17:27 AM][GetMailNumber] Starting Function
+[03/17/2017 12:17:27 AM][GetMailNumber] Completed with SUCCESS
+[03/17/2017 12:17:39 AM][InsertTicketandUser] Starting Function
+[03/17/2017 12:17:39 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 12:18:18 AM][InsertTicketandUser] Starting Function
+[03/17/2017 12:18:18 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 12:18:44 AM][Main Program] Ending Program
+[03/17/2017 12:20:23 AM][Main Program] Starting Program
+[03/17/2017 12:20:25 AM][GetMailNumber] Starting Function
+[03/17/2017 12:20:25 AM][GetMailNumber] Completed with SUCCESS
+[03/17/2017 12:20:25 AM][InsertTicketandUser] Starting Function
+[03/17/2017 12:20:25 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 12:20:26 AM][InsertTicketandUser] Starting Function
+[03/17/2017 12:20:26 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 12:20:26 AM][InsertTicketandUser] Starting Function
+[03/17/2017 12:20:26 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 12:20:26 AM][InsertTicketThread] Starting Function
+[03/17/2017 12:20:26 AM][InsertTicketThread] Completed with SUCCESS
+[03/17/2017 12:20:26 AM][Main Program] Ending Program
+[03/17/2017 2:06:05 AM][Main Program] Starting Program
+[03/17/2017 2:06:07 AM][GetMailNumber] Starting Function
+[03/17/2017 2:06:07 AM][GetMailNumber] Completed with SUCCESS
+[03/17/2017 2:06:07 AM][InsertTicketandUser] Starting Function
+[03/17/2017 2:06:07 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 2:06:08 AM][InsertTicketandUser] Starting Function
+[03/17/2017 2:06:08 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 2:06:08 AM][InsertTicketandUser] Starting Function
+[03/17/2017 2:06:08 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 2:06:22 AM][InsertTicketThread] Starting Function
+[03/17/2017 2:06:22 AM][InsertTicketThread] Completed with SUCCESS
+[03/17/2017 2:06:29 AM][Main Program] Ending Program
+[03/17/2017 2:09:11 AM][Main Program] Starting Program
+[03/17/2017 2:09:13 AM][GetMailNumber] Starting Function
+[03/17/2017 2:09:13 AM][GetMailNumber] Completed with SUCCESS
+[03/17/2017 2:09:31 AM][InsertTicketandUser] Starting Function
+[03/17/2017 2:09:31 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 2:09:38 AM][InsertTicketandUser] Starting Function
+[03/17/2017 2:09:38 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 2:09:44 AM][InsertTicketandUser] Starting Function
+[03/17/2017 2:09:44 AM][InsertTicketandUser] Completed with SUCCESS
+[03/17/2017 2:09:52 AM][InsertTicketThread] Starting Function
+[03/17/2017 2:09:52 AM][InsertTicketThread] Completed with SUCCESS
+[03/17/2017 2:10:10 AM][Main Program] Ending Program
