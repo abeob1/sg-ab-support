@@ -23,8 +23,12 @@
 <script src="js/services/util_factory.js" ></script>
 <script src="js/ctrl/detail_ctrl.js" ></script>
 
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
-<body ng-app="myApp" ng-controller="detail_ctrl">
+<body ng-app="myApp" ng-controller="detail_ctrl" id="controller">
 <div class="loaderss" data-loadingss id="loadingss"><i class="fa fa-refresh fa-spin fa-fw"></i> Loading...</div>
 
 	<div ng-include="'header.html'" ></div>
@@ -46,7 +50,7 @@
     <!-- Main content -->
     <div class="panel-default panel">
       <div class="panel-heading with-border">
-        <h3 class="panel-title" style="width:300px;">Ticket Details {{notification}} </h3>
+        <h3 class="panel-title" style="width:300px;">Ticket Details </h3>
         <div class="pull-right"  ng-hide="userdata[0].account_type=='Customer' || userdata[0].account_type=='developer'">
          
           <button type="button" class="btn btn-default" id="Edit_Ticket" data-toggle="modal" data-target="#Edit"><i class="fa fa-edit" style="color:green;"> </i> Edit</button>
@@ -207,6 +211,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">  CKEDITOR.replace( 'editor1' );</script>
 </body>
+
 <!--Assign  Modal -->
 <div class="modal fade in" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
   <div class="modal-dialog" role="document" style="width:800px;">
@@ -217,18 +222,18 @@
           <table width="100%" border="0" cellspacing="5" cellpadding="5" class="table">
             <tr style="background:#CCCCCC">
               <th>Email</th>
-              <th>Department</th>
+              <th>Name</th>
               <th>Action</th>
             </tr>
             <tr>
               <td><input type="text" class="form-control" placeholder="Enter Consultant Email" ng-model="searchtext.email" /></td>
-              <td><input type="text" class="form-control" placeholder="Enter Department" ng-model="searchtext.name" /></td>
+              <td><input type="text" class="form-control" placeholder="Enter Name" ng-model="searchtext.user_name" /></td>
               <td><i class="fa fa-search"></i></td>
             </tr>
             <tr ng-repeat="a in agentList |filter:searchtext">
               <td>{{a.email}}</td>
-              <td>{{a.name}}</td>
-              <td><button type="button" class="btn-info btn" ng-click="AssignUser(a.id,a.email);">Assign</button></td>
+              <td>{{a.user_name}}</td>
+              <td><button type="button" class="btn-info btn" ng-click="AssignUser(a.id);">Assign</button></td>
             </tr>
           </table>
           <button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
@@ -237,6 +242,33 @@
     </div>
   </div>
 </div>
+
+<!--Set Deu Date Modal -->
+<div class="modal fade in" id="DDPOPUP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+  <div class="modal-dialog" role="document" style="width:450px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="modal-content">
+        <div class="modal-body" id="custom-alert-body">
+          <div id="datepicker"></div>
+		  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+    onSelect: function(dateText, inst) {
+        var date = $(this).val();
+		angular.element(document.getElementById('controller')).scope().setDueDate(date);
+    }
+});
+  } );
+  </script>
+         <div style="position: absolute;right: -20px;"><button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close"> X </button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!--Development manager  Modal -->
 <div class="modal fade in" id="devManagerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
   <div class="modal-dialog" role="document" style="width:800px;">

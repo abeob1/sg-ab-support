@@ -42,9 +42,61 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
   
   
   
+  $scope.openDuedatePop = function()
+	{
+		$("#DDPOPUP").modal('show');
+	}
+	
+	$scope.setDueDate = function(DDate)
+	{
+		console.log(DDate);
+		US.SetDueDate($scope.details.id,DDate).then(function (response){  if (response.data.VALIDATE[0].Status !=false) {
+			  $("#DDPOPUP").modal('hide');
+             //alert(response.data.VALIDATE[0].Msg);
+			$scope.GetTickectDetail($scope.details.id);
+			  
+           }
+            else
+			{
+				$("#DDPOPUP").modal('hide');
+               //alert(response.data.VALIDATE[0].Msg);
+			}
+			   
+			   });
+	}
+	
+	
+  $scope.assignConsultant = function(Tid)
+	{
+		
+		$rootScope.CurrentTD = Tid;
+		US.GetagentList().then(function (response){$scope.agentList=response.data.CONSULTANTS;});
+		$("#assignModal").modal('show');
+	}
+	
+	$scope.AssignUser = function(id)
+	{
+		US.AssignTicket($scope.details.id,id).then(function (response){  if (response.data.VALIDATE[0].Status !=false) {
+			  $("#assignModal").modal('hide');
+             //alert(response.data.VALIDATE[0].Msg);
+			$scope.GetTickectDetail($scope.details.id);
+			  
+           }
+            else
+			{
+				$("#assignModal").modal('hide');
+               //alert(response.data.VALIDATE[0].Msg);
+			}
+			   
+			   });
+	}
+	
+	
+  
   $scope.closeTicket = function(TID)
   {
-	    var data = { "TICKET": [{  "TID": TID, "StatusID":"2","Notification":$rootScope.notification }]}
+	  var notification = $("#notification").is(':checked') ? "True" : "False";
+	    var data = { "TICKET": [{  "TID": TID, "StatusID":"2","Notification":notification }]}
 
         var parms = JSON.stringify(data);
         $http.post(US.url+'UpdateTicketStatus', "sJasonInput=" + parms, US.config)
@@ -361,7 +413,7 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
        function (response) {
            // success callback
            console.log(response.data);
-           $rootScope.agentList = response.data.Data;
+           $rootScope.agentListddd = response.data.Data;
 		  },
        function (response) {
            // failure callback
@@ -371,38 +423,7 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
 
     }
 	
-	//assign ticket to agent
-	 $scope.AssignUser = function (id,email) {
-        var data = {"apikey" : US.APIKEY,
-					'method':"AssignUser",
-					"UserID":$scope.userdata[0].id,
-					"TID":$scope.details.id,
-					"email":email,
-					"AssignedUserId":id}
-
-        var parms = JSON.stringify(data);
-        $http.post(US.url, "sJsonInput=" + parms, US.config)
-   .then(
-       function (response) {
-           // success callback
-           console.log(response.data);
-             if (response.data.status !=false) {
-				  $('#assignModal').modal('toggle');
-              US.info("Alert",response.data.Data,"success");
-			  
-               
-           }
-            else
-               US.info("Alert",response.data.MSG,"danger");
-			   
-		  },
-       function (response) {
-           // failure callback
-
-       }
-    );
-
-    }
+	
 	
 	
 	

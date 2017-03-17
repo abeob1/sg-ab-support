@@ -86,6 +86,24 @@ App.service('util_SERVICE', ['$http', '$window', '$cookieStore', '$rootScope', f
 	
 	
 	//Get All ticket Status
+    this.SetDueDate = function (Tid,DDate) {
+        var data = { "TICKETS": [{  "TID": Tid,  "DueDate":DDate}]
+}
+        var promise = $http.post(this.url+'SetTicketDueDate',"sJasonInput="+JSON.stringify(data), this.config)
+   .success(function (response) {
+       if (response.returnStatus == 1) {
+           return response;
+       } else {
+           //alert('Not Connecting to server');
+           return false;
+       }
+   });
+        return promise;
+
+    };
+	
+	
+	//Get All ticket Status
     this.GetactivityData = function (tid,UID) {
         var data = {"apikey" : this.APIKEY,'method':"GetactivityData","TID":tid,"UserID":UID}
         var promise = $http.post(this.url, "sJsonInput=" +JSON.stringify(data), this.config)

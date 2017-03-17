@@ -14,14 +14,20 @@
                   <td title="Open tickets.">{{details.StatusName}}</td>
                 </tr>
                 <tr ng-if="userdata[0].account_type!='Customer'">
-                  <td colspan="2"><button class="btn-default btn" > <i class="fa fa-calendar" aria-hidden="true"></i> Set DueDate</button>
-                    <button class="btn-info btn" style="color:#333333;" > <i class="fa fa-user-circle-o" aria-hidden="true"></i> Assign To</button></td>
+                  <td colspan="2">
+				  
+				 <span ng-if="details.CDDate===null"> <button class="btn-default btn" ng-click="openDuedatePop();" > <i class="fa fa-calendar" aria-hidden="true"></i> DueDate</button></span> 
+				 <span ng-if="details.AssignedName===null"> <button class="btn-info btn" style="color:#333333;" ng-click="assignConsultant(details.Id);" > <i class="fa fa-user-circle-o" aria-hidden="true"></i> Assign To</button></span>  
+                  
+				  
+				  </td>
                 </tr>
+				<tr><td colspan="2"> <span ng-if="details.CDDate!==null"><strong>Due Date:</strong> {{details.CDDate}}</span> <br/> <span ng-if="details.AssignedName!==null"><strong>Assigned to:</strong> {{details.AssignedName}}</span></td></tr>
                 <tr ng-if="userdata[0].account_type!='Customer'">
                   <td colspan="2"><div ng-if="details.StatusName!='Close'" class="mt5 headerContent rhsbtn" style="display:inline-block;cursor:pointer;" >
                       <div style="border-right: solid 1px #c1c1c1;"   class="new-css-btn-left" onMouseOver="jQuery('#displayTooltip').show()" onMouseOut="jQuery('#displayTooltip').hide()">
                         <div id="optionSwitch" class="switch-gr-div" >
-                          <input type="checkbox" ng-model="notification" style="width:20px;height:15px;" checked data-toggle="toggle" data-style="ios" data-size="mini" data-onstyle="success">
+                          <input type="checkbox" id="notification" style="width:20px;height:15px;" checked data-toggle="toggle" data-style="ios" data-size="mini" data-onstyle="success">
                           <div id="displayTooltip" class="black-tooltip" style="display: none;">Click to disable Ticket closure notification</div>
                         </div>
                       </div>
