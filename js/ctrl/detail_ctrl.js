@@ -6,7 +6,7 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
 	$scope.reply_cannedResponce = "";
   	US.islogin();
 	
-   
+   $rootScope.notification = false;
 	$scope.userdata = JSON.parse($cookies.get('UserData'));
  //$scope.calltypeSelected = "";
  
@@ -44,7 +44,7 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
   
   $scope.closeTicket = function(TID)
   {
-	    var data = { "TICKET": [{  "TID": TID, "StatusID":"2" }]}
+	    var data = { "TICKET": [{  "TID": TID, "StatusID":"2","Notification":$rootScope.notification }]}
 
         var parms = JSON.stringify(data);
         $http.post(US.url+'UpdateTicketStatus', "sJasonInput=" + parms, US.config)

@@ -12,21 +12,12 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
  console.log($scope.userdata);
  
  $scope.GetAllTickect = function () {
-	 
-	
-        $http.post(US.url+'GetAllTickets',"", US.config)
+
+        $http.post(US.url+'GetAllTickets', "", US.config)
    .then(
        function (response) {
            // success callback
-		   if(response.data.VALIDATE[0].Status !="False")
-		   {
-          	 	console.log(response.data);
-          		$scope.MAILLIST = response.data.Data;
-		   }
-		   else
-		   {
-			   alert(response.data.VALIDATE[0].Msg);
-		   }
+           $scope.MAILLIST = response.data.TICKETS;
            
        },
        function (response) {
