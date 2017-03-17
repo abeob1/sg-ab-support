@@ -12,7 +12,7 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
  
  
  console.log($scope.userdata);
- US.GetAllStatus().then(function (response){$scope.AllStatus=response.data.Data;console.log(response.data);});
+ US.GetAllStatus().then(function (response){$scope.AllStatus=response.data.TICKETSTATUS;});
  
  //change ticket status 
   $scope.changeTicketStatus = function(id)
@@ -39,27 +39,44 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
 		  },
        function (response) {});
   }
+  
+  
+  
+  $scope.closeTicket = function(TID)
+  {
+	    var data = { "TICKET": [{  "TID": TID, "StatusID":"2" }]}
+
+        var parms = JSON.stringify(data);
+        $http.post(US.url+'UpdateTicketStatus', "sJasonInput=" + parms, US.config)
+   .then(
+       function (response) {
+           // success callback
+             if (response.data.VALIDATE[0].Status !=false) {
+				 $scope.GetTickectDetail($scope.details.id);
+              //US.info("Alert",response.data.Data,"success");
+           }
+            else
+               alert(response.data.VALIDATE[0].MSG);
+			   
+		  },
+       function (response) {});
+  }
  
  $scope.GetTickectDetail = function (id) {
 
-        var data = {"apikey" : US.APIKEY,'method':"GetTickectDetail","UserID":$scope.userdata[0].id,"ID":id}
+        var data = { "TICKET": [{  "TID": id }]}
 
-        var config = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-            }
-        }
 
         var parms = JSON.stringify(data);
-        $http.post(US.url, "sJsonInput=" + parms, config)
+        $http.post(US.url+'GetTicketDetails', "sJasonInput=" + parms, US.config)
    .then(
        function (response) {
            // success callback
            console.log(response.data);
-          $scope.details = response.data.Data.Details[0];
-		  $scope.thread = response.data.Data.thread;
+          $scope.details = response.data.TICKETS[0];
+		  $scope.thread = response.data.TICKET_THREAD;
 		  //get activity data
-		  US.GetactivityData(id,$scope.userdata[0].id).then(function (response){$scope.GetactivityData=response.data.Data;});
+		  //US.GetactivityData(id,$scope.userdata[0].id).then(function (response){$scope.GetactivityData=response.data.Data;});
 		  
 		  for(var i = 0;i<$scope.thread.length;i++)
 		  {

@@ -1,0 +1,41 @@
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<div class="col-lg-3">
+            <table class="table">
+              <tbody>
+                
+                <tr>
+                  <td colspan="2"><i class="fa fa-address-book" aria-hidden="true"></i>&nbsp; {{details.CompanyName}} <br/>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; {{details.email}}<br/>
+					<i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp; {{details.mobile}}</td>
+                </tr>
+                <tr>
+                  <td><b>Status:</b></td>
+                  <td title="Open tickets.">{{details.StatusName}}</td>
+                </tr>
+                <tr ng-if="userdata[0].account_type!='Customer'">
+                  <td colspan="2"><button class="btn-default btn" > <i class="fa fa-calendar" aria-hidden="true"></i> Set DueDate</button>
+                    <button class="btn-info btn" style="color:#333333;" > <i class="fa fa-user-circle-o" aria-hidden="true"></i> Assign To</button></td>
+                </tr>
+                <tr ng-if="userdata[0].account_type!='Customer'">
+                  <td colspan="2"><div ng-if="details.StatusName!='Close'" class="mt5 headerContent rhsbtn" style="display:inline-block;cursor:pointer;" >
+                      <div style="border-right: solid 1px #c1c1c1;"   class="new-css-btn-left" onMouseOver="jQuery('#displayTooltip').show()" onMouseOut="jQuery('#displayTooltip').hide()">
+                        <div id="optionSwitch" class="switch-gr-div" >
+                          <input type="checkbox" style="width:20px;height:15px;" checked data-toggle="toggle" data-style="ios" data-size="mini" data-onstyle="success">
+                          <div id="displayTooltip" class="black-tooltip" style="display: none;">Click to disable Ticket closure notification</div>
+                        </div>
+                      </div>
+                      <a class="new-css-btn-right" style="text-decoration:none;" href="" ng-click="closeTicket(details.id);">Close Ticket</a></div></td>
+                </tr>
+                <tr>
+                  <td><b>Total Actual Time spent:</b></td>
+                  <td title="Support">20hr</td>
+                </tr>
+                <tr>
+                  <td><b>Total Time charged:</b></td>
+                  <td title="Support">10hr</td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>

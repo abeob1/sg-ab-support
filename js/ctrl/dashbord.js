@@ -12,7 +12,8 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
  console.log($scope.userdata);
  
  $scope.GetAllTickect = function () {
-
+	 
+	
         $http.post(US.url+'GetAllTickets',"", US.config)
    .then(
        function (response) {

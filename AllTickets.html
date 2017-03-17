@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support</title>
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+
+<!--Icons-->
+<script src="js/lumino.glyphs.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+
+
+<script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/angular.js"></script>
+    <script src="js/libs/angular-route.js"></script>
+    <script src="js/libs/angular-ui-router.js"></script>
+    <script src="js/libs/ocLazyLoad.js"></script>
+    <script src="js/libs/ui-bootstrap.js"></script>
+    <script src="js/libs/ui-bootstrap-tpls-0.9.0.js"></script>
+    <script src="js/libs/angular-cookies.js"></script>
+	
+	
+	<script src="js/config/app.js"></script>
+    <script src="js/services/util_factory.js" ></script>
+	<script src="js/ctrl/AllTickets.js" ></script>
+</head>
+
+<body ng-app="myApp" ng-controller="AllTickets_ctrl">
+	
+	
+	<div ng-include="'header.html'" ></div>
+	<div ng-include="'sidebar.html'"></div>
+	
+		
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="customerdashbord.html"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Tickets</li>
+			</ol>
+		</div><!--/.row-->
+		
+		
+		
+		
+		
+		<section class="content">
+                    <!-- Main content -->
+<div class="panel-default panel">
+    <div class="panel-heading with-border">
+        <h3 class="panel-title">My Tickets</h3> <!--<small id="title_refresh">2 Tickets</small>-->
+		
+		
+    </div><!-- /.box-header -->
+
+    <div class="panel-body" style="opacity: 1;">
+                <!-- failure message -->
+        
+        <form method="POST" action="" accept-charset="UTF-8" id="modalpopup"><input name="_token" type="hidden" value="ijHPFLya2de6wLWaSjlxBUaXp0jljaOwAK2vFjSm">
+        <!--<div class="mailbox-controls">-->
+        <!-- Check all button -->
+        
+        <button  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='Agent'" type="button" class="btn btn-sm btn-default text-green" id="Edit_Ticket" data-toggle="modal" data-target="#MergeTickets"><i class="fa fa-code-fork"> </i> Merge</button>
+        <!--</div>-->
+     <div class="mailbox-messages" id="refresh">
+            <p style="display:none;text-align:center; position:fixed; margin-left:40%;margin-top:-70px;" id="show" class="text-red"><b>Loading...</b></p>
+            <!-- table -->
+            <div id="1DcVVETq_wrapper" class="dataTables_wrapper form-inline no-footer">
+			<div class="row">
+			<div class=" pull-right">
+			
+			<label>Filter: <input type="search" class="form-control input-xs" style="border:solid 1px #666666"  ng-model="SearchText" aria-controls="1DcVVETq"></label>
+			
+			</div>
+			<div id="1DcVVETq_processing" class="dataTables_processing" style="display: none;"></div></div>
+			
+			
+			
+			<table width="100%" border="0" cellspacing="5" class="table table-hover" cellpadding="5">
+			 	<tr ng-repeat="d in MAILLIST | filter :SearchText">
+			 		<td><table width="100%" border="0">
+  <tr>
+    <td style="width:3%;"><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td  style="width:57%;"><div>#{{d.ticket_number}} &nbsp; &nbsp; <a href="detail.html?id={{d.id}}" style="color:#333333;font-weight:bold;" >{{d.Subject}}</a></div>
+	<div style="font-size:12px;margin-top:5px;">from : {{d.customberName}} <!--<span style="color:#999999">Priority: {{d.priority}}</span>--> </div></td>
+    <td style="width:20%;"><span  ng-if="d.AssignedTOName!==null">{{d.AssignedTOName}}</span><span ng-if="d.AssignedTOName===null"><button type="button" class="btn-default btn" ng-click="assignConsultant(d.id);">Assign</button></span></td>
+    <td style="width:10%;">{{d.TicketStatus}}</td>
+  </tr>
+</table>
+</td>
+			 	</tr>
+			</table>
+			<!--<table width="100%" border="0" cellspacing="5" class="table table-hover table-bordered table-striped" cellpadding="5">
+  <tr>
+    <th>&nbsp;</th>
+    <th>Subject</th>
+    <th>Ticket ID</th>
+    <th>Priority</th>
+    <th>From</th>
+    <th>Assigned To</th>
+    <th>Last Activity</th>
+  </tr>
+  
+  <tr ng-repeat="d in MAILLIST | filter :SearchText">
+    <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
+    <td><a href="detail.html?id={{d.id}}" title="">{{d.Subject}}</a></td>
+    <td><a href="" ng-click="GetMailById(d.Val);">#{{d.ticket_number}}</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: {{d.priority_color}};color:#FFFFFF;">{{d.priority}}</button></td>
+    <td>{{d.user_id}} </td>
+    <td><a href="#">{{d.AssignedTOName}}</a></td>
+    <td>{{d.created_at}}</td>
+  </tr>
+</table>-->
+
+			
+
+
+<div class="row"><div class="col-xs-6">
+<div class="dataTables_info" id="1DcVVETq_info" role="status" aria-live="polite">Showing 1 to 2 of 2 entries</div>
+</div>
+
+	<div class="col-xs-6">
+	<div class="dataTables_paginate paging_full_numbers" id="1DcVVETq_paginate"><ul class="pagination"><li class="paginate_button first disabled" aria-controls="1DcVVETq" tabindex="0" id="1DcVVETq_first"><a href="#">First</a></li><li class="paginate_button previous disabled" aria-controls="1DcVVETq" tabindex="0" id="1DcVVETq_previous"><a href="#">Previous</a></li><li class="paginate_button active" aria-controls="1DcVVETq" tabindex="0"><a href="#">1</a></li><li class="paginate_button next disabled" aria-controls="1DcVVETq" tabindex="0" id="1DcVVETq_next"><a href="#">Next</a></li><li class="paginate_button last disabled" aria-controls="1DcVVETq" tabindex="0" id="1DcVVETq_last"><a href="#">Last</a></li></ul></div>
+	
+	</div>
+</div>
+</div>
+
+    
+
+
+        </div><!-- /.mail-box-messages -->
+        </form>
+    </div><!-- /.box-body -->
+</div><!-- /. box -->
+
+<!-- merge tickets modal -->
+<div class="modal fade" id="MergeTickets">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="merge-close" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Merge ticket </h4>
+            </div><!-- /.modal-header-->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-6" id="merge_loader" style="display:none;">
+                        <img src="http://www.faveohelpdesk.com/demo/helpdesk/lb-faveo/media/images/gifloader.gif"><br><br><br>
+                    </div><!-- /.merge-loader -->
+                </div>
+                <div id="merge_body">
+                    <div id="merge-body-alert">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="merge-succ-alert" class="alert alert-success alert-dismissable" style="display:none;">
+                                    <!--<button id="dismiss-merge" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>-->
+                                    <h4><i class="icon fa fa-check"></i>Alert!</h4>
+                                    <div id="message-merge-succ"></div>
+                                </div>
+                                <div id="merge-err-alert" class="alert alert-danger alert-dismissable" style="display:none;">
+                                    <!--<button id="dismiss-merge2" type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>-->
+                                    <h4><i class="icon fa fa-ban"></i>Alert!</h4>
+                                    <div id="message-merge-err"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.merge-alert -->
+                    <div id="merge-body-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form method="POST" action="http://www.faveohelpdesk.com/demo/helpdesk/ticket/myticket" accept-charset="UTF-8" id="merge-form"><input name="_method" type="hidden" value="PATCH"><input name="_token" type="hidden" value="ijHPFLya2de6wLWaSjlxBUaXp0jljaOwAK2vFjSm">
+                                <label>Title</label>
+                                <input type="text" name="title" class="form-control" value="" placeholder="Optional">
+                            </form></div>
+                            <div class="col-md-6">
+                                <label>Select parent ticket</label>
+                                <select class="form-control" id="select-merge-parent" name="p_id" data-placeholder="Select tickets to merge" style="width: 100%;"><option value=""></option></select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label>Reason for merging</label>
+                                <textarea name="reason" class="form-control"></textarea>
+                            </div>
+
+                        </div>
+                    </div><!-- mereg-body-form -->
+                </div><!-- merge-body -->
+            </div><!-- /.modal-body -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal" id="dismis2">Close</button>
+                <input type="submit" id="merge-btn" class="btn btn-primary pull-right" value="Merge">
+                
+            </div><!-- /.modal-footer -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- Modal -->   
+<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+    <div class="modal-dialog" role="document">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close closemodal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel"></h4>
+                </div>
+                <div class="modal-body" id="custom-alert-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary pull-left yes" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-default no">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Assign  Modal -->
+<div class="modal fade in" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none; padding-right: 15px;background-color: rgba(0, 0, 0, 0.7);">
+  <div class="modal-dialog" role="document" style="width:800px;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="modal-content">
+        <div class="modal-body" id="custom-alert-body">
+          <table width="100%" border="0" cellspacing="5" cellpadding="5" class="table">
+            <tr style="background:#CCCCCC">
+              <th>Email</th>
+              <th>Name</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+              <td><input type="text" class="form-control" placeholder="Enter Consultant Email" ng-model="searchtext.email" /></td>
+              <td><input type="text" class="form-control" placeholder="Enter Name" ng-model="searchtext.user_name" /></td>
+              <td><i class="fa fa-search"></i></td>
+            </tr>
+            <tr ng-repeat="a in agentList |filter:searchtext">
+              <td>{{a.email}}</td>
+              <td>{{a.user_name}}</td>
+              <td><button type="button" class="btn-info btn" ng-click="AssignUser(a.id);">Assign</button></td>
+            </tr>
+          </table>
+          <button type="button" class="btn-danger btn" data-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+                </section>
+	</div>	<!--/.main-->
+
+	
+	<script src="js/bootstrap.min.js"></script>
+	
+</body>
+
+</html>

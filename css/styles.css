@@ -961,4 +961,47 @@ h1.page-header {
 
 
 
+/*close btn css */
 
+.new-css-btn-right, .new-css-btn-left
+{
+    border-radius: 0 3px 3px 0;
+    float: left;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    border-left: 0;
+    color: #666;
+    font: 12px 'Open Sans',sans-serif;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.new-css-btn-left {
+    border: 0;
+}
+.rhsbtn {
+    background-color: #FFFFFF;
+    border: 1px solid #C1C1C1;
+    border-radius: 3px;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+    color: #666;
+    font: 12px 'Open Sans',sans-serif;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.switch-outer-div {
+    background: #A5D783;
+    border: 1px solid #7DB756;
+    border-radius: 10px;
+    height: 10px;
+    width: 18px;
+}
+
+.black-tooltip {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    color: #FFF;
+    margin: 11px 0 0 -16px;
+    padding: 7px 10px;
+    position: absolute;
+    text-shadow: 1px 1px 0 #000;
+}

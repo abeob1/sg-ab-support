@@ -36,86 +36,9 @@
 </head>
 
 <body ng-app="myApp" ng-controller="Cdashbord_ctrl">
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"><span><img src="images/Logo.png"></span> Abeo International Pte Ltd</a>
-				<ul class="user-menu">
-				<li class="dropdown pull-left">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Welcome <strong>{{userdata[0].user_name}}</strong> &nbsp;</a>
-						
-					</li>
-					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Profile</a></li>
-							<li><a href="#"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a></li>
-							<li><a href="index.html"><i class="fa fa-power-off" aria-hidden="true"></i> Logout</a></li>
-							
-						</ul>
-					</li>
-				</ul>
-			</div>
-							
-		</div><!-- /.container-fluid -->
-	</nav>
-		
-	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-		<form role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form>
-		
-		<ul class="nav menu">
-			<li>
-                            <a href="MyTickets.html" id="load-myticket">
-                                <i class="fa fa-ticket"></i> <span>Open tickets</span>
-                                <!--<small class="pull-right text-danger">0</small>-->
-                            </a>
-                        </li>
-						<li  ng-show="userdata[0].account_type=='Customer'" >
-                            <a href="alltickets.html" id="load-unassigned">
-                                <i class="fa fa-ticket"></i> <span>All tickets</span>
-                                <!--<small class="pull-right text-danger">2</small>-->
-                            </a>
-                        </li>
-			<li  ng-show="userdata[0].account_type=='Customer'" >
-                            <a href="customerdashbord.html" id="load-unassigned">
-                                <i class="fa fa-th"></i> <span>Dashboard</span>
-                                <!--<small class="pull-right text-danger">2</small>-->
-                            </a>
-                        </li>
-			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='Agent'" >
-                            <a href="" id="load-unassigned">
-                                <i class="fa fa-th"></i> <span>Unassigned</span>
-                                <!--<small class="pull-right text-danger">2</small>-->
-                            </a>
-                        </li>
-			<li  ng-show="userdata[0].account_type=='Admin' || userdata[0].account_type=='Agent'">
-                            <a href="" id="load-unassigned">
-                                <i class="fa fa-calendar-times-o"></i> <span>Overdue</span>
-                                <!--<small class="pull-right text-danger">2</small>-->
-                            </a>
-                        </li>
-			<li>
-                             <a href="">
-                                <i class="fa fa-trash-o"></i> <span>Trash</span>
-                                <!--<small class="pull-right text-danger">1</small>-->
-                            </a>
-                        </li>
-			
-			<li role="presentation" class="divider"></li>
-			<li><a href="index.html">  Logout</a></li>
-		</ul>
-
-	</div><!--/.sidebar-->
+	
+	<div ng-include="'header.html'" ></div>
+	<div ng-include="'sidebar.html'"></div>
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
@@ -139,8 +62,8 @@
 							<i class="fa fa-ticket" style="font-size:50px;" aria-hidden="true"></i>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">120</div>
-							<div class="text-muted">New Tickets</div>
+							<div class="large">{{CDD[0].TotalTicket}}</div>
+							<div class="text-muted">Total Tickets</div>
 						</div>
 					</div>
 				</div>
@@ -152,7 +75,7 @@
 							<i class="fa fa-thumbs-up" style="font-size:50px;" aria-hidden="true"></i>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">52</div>
+							<div class="large">{{CDD[0].ClosedTicket}}</div>
 							<div class="text-muted">Closed</div>
 						</div>
 					</div>
@@ -165,8 +88,8 @@
 								<i class="fa fa-bullhorn" style="font-size:50px;" aria-hidden="true"></i>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">24</div>
-							<div class="text-muted">Un assigned</div>
+							<div class="large">{{CDD[0].OpenTicket}}</div>
+							<div class="text-muted">Open Tickets</div>
 						</div>
 					</div>
 				</div>
@@ -401,8 +324,8 @@
     <td><input type="checkbox" name="select_all[]" id="9" onClick="someFunction(this.id)" class="selectval icheckbox_flat-blue" value="9"></td>
     <td><a href="detail.html?id={{d.id}}" title="">{{d.Subject}}<!--<span style="color:green">(1)<i class="fa fa-envelope"></i></span>--></a></td>
     <td><a href="" ng-click="GetMailById(d.Val);">#{{d.ticket_number}}</a></td>
-    <td><button class="btn btn-default btn-xs" style="background-color: {{d.priority_color}};color:#FFFFFF;">{{d.priority}}</button></td>
-    <td><a href="#">{{d.first_name}}</a></td>
+    <td><button class="btn btn-default btn-xs" style="background-color: {{d.priority_color}};color:#FFFFFF;">{{d.priorityName}}</button></td>
+    <td><a href="#">{{d.AssignedName}}</a></td>
     <td>{{d.created_at}}</td>
   </tr>
 </table>
@@ -421,7 +344,7 @@
 		<div class="col-lg-4"><table width="100%" border="0" class="table" cellspacing="5" cellpadding="5">
   <tr>
     <td style="border-top:none" colspan="2" align="center"><a href="upload/customer-agreement.pdf" download  target="_blank"><button type="button" class="btn-default btn"><i class="fa fa-download" aria-hidden="true"></i> Contract Scan</button></a>
-	<button type="button" class="btn-success btn"><i class="fa fa-ticket" aria-hidden="true"></i> New tickets</button>	</td>
+	<a href="mailto:sapb1.abeoelectra@gmail.com" ><button type="button" class="btn-success btn"><i class="fa fa-ticket" aria-hidden="true"></i> New tickets</button></a>	</td>
   </tr>
   <tr>
     <td><strong>To- Date</strong></td>

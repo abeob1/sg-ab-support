@@ -11,30 +11,58 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
  
  console.log($scope.userdata);
  
- $scope.GetAllTickect = function () {
+ 
+ $scope.GetAllCTickect = function () {
 
-        var data = {"apikey" : US.APIKEY,'method':"GetAllTickect","UserID":$scope.userdata[0].id,"account_type":$scope.userdata[0].account_type}
-
-        var config = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-            }
-        }
+      
+        var data ={
+ "TICKETS": [{
+  "UserID": $scope.userdata[0].id,
+  "StatusId":"1"
+ }]
+}
 
         var parms = JSON.stringify(data);
-        $http.post(US.url, "sJsonInput=" + parms, config)
+        $http.post(US.url+'GetCustomerTickets', "sJasonInput=" + parms, US.config)
    .then(
        function (response) {
            // success callback
-           console.log(response.data);
-          $scope.MAILLIST = response.data.Data;
-           
+          $scope.MAILLIST = response.data.TICKETS;
        },
        function (response) {
            // failure callback
-
        }
     );
+
+    }
+	
+	
+	
+	
+	
+ $scope.GetAllTickect = function () {
+
+       
+      
+        var data ={
+ "TICKETS": [{
+  "UserID": $scope.userdata[0].id,
+  "StatusId":"1"
+ }]
+}
+
+        var parms = JSON.stringify(data);
+        $http.post(US.url+'GetConsultantTickets', "sJasonInput=" + parms, US.config)
+   .then(
+       function (response) {
+           // success callback
+          $scope.MAILLIST = response.data.TICKETS;
+       },
+       function (response) {
+           // failure callback
+       }
+    );
+
 
     }
 	
@@ -100,6 +128,13 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
 	
 	}
 	
+	if($scope.userdata[0].account_type=="Customer")
+	{
+		$scope.GetAllCTickect();
+	}
+	else
+	{
+		$scope.GetAllTickect();
+	}
 
-$scope.GetAllTickect();
 } ]);

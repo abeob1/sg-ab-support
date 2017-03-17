@@ -15,7 +15,8 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
 
         var data ={
  "TICKETS": [{
-  "UserID": $scope.userdata[0].id
+  "UserID": $scope.userdata[0].id,
+  "StatusId":""
  }]
 }
 
@@ -24,13 +25,10 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
    .then(
        function (response) {
            // success callback
-           console.log(response.data);
-          $scope.MAILLIST = response.data.Data;
-           
+          $scope.MAILLIST = response.data.TICKETS;
        },
        function (response) {
            // failure callback
-
        }
     );
 
@@ -66,38 +64,31 @@ function ($scope, $rootScope, $http, $window, $cookies, US) {
 
     }
 	
-	$scope.GetMailById = function(id)
-	{
-			
+	
+ $scope.GetCDD = function () {
 
-        var data = {"apikey" : US.APIKEY,'method':"GetMailById","MailId":id}
-
-        var config = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-            }
-        }
+        var data ={
+ "data": [{
+  "UserID": $scope.userdata[0].id
+ }]
+}
 
         var parms = JSON.stringify(data);
-        $http.post(US.url, "sJsonInput=" + parms, config)
+        $http.post(US.url+'GetCustomerDashboardData', "sJasonInput=" + parms, US.config)
    .then(
        function (response) {
            // success callback
-           console.log(response.data);
-          //$scope.MAILLIST = response.data.Data;
-           
+          $scope.CDD = response.data.CDD;
        },
        function (response) {
            // failure callback
-
        }
     );
 
-    
+    }
 	
-	
-	}
 	
 
 $scope.GetAllTickect();
+$scope.GetCDD(); //get customer dashbord details
 } ]);

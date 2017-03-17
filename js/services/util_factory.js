@@ -34,8 +34,8 @@ App.service('util_SERVICE', ['$http', '$window', '$cookieStore', '$rootScope', f
 	
 	//Get All ticket Status
     this.GetAllStatus = function () {
-        var data = {"apikey" : this.APIKEY,'method':"GetAllStatus"}
-        var promise = $http.post(this.url, "sJsonInput=" +JSON.stringify(data), this.config)
+        
+        var promise = $http.post(this.url+'GetAllTicketStatus',"", this.config)
    .success(function (response) {
        if (response.returnStatus == 1) {
            return response;
@@ -48,6 +48,41 @@ App.service('util_SERVICE', ['$http', '$window', '$cookieStore', '$rootScope', f
 
     };
 	
+	
+	
+	//Get All ticket Status
+    this.GetagentList = function () {
+        
+        var promise = $http.post(this.url+'GetAllConsultants',"", this.config)
+   .success(function (response) {
+       if (response.returnStatus == 1) {
+           return response;
+       } else {
+           //alert('Not Connecting to server');
+           return false;
+       }
+   });
+        return promise;
+
+    };
+	
+	
+	//Get All ticket Status
+    this.AssignTicket = function (Tid,Uid) {
+        var data = { "TICKETS": [{  "TID": Tid,  "UID":Uid}]
+}
+        var promise = $http.post(this.url+'AssignTickets',"sJasonInput="+JSON.stringify(data), this.config)
+   .success(function (response) {
+       if (response.returnStatus == 1) {
+           return response;
+       } else {
+           //alert('Not Connecting to server');
+           return false;
+       }
+   });
+        return promise;
+
+    };
 	
 	
 	//Get All ticket Status
