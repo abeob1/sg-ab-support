@@ -24,8 +24,7 @@ namespace IMAP
                 oLog.WriteToDebugLogFile("Starting Program", sFuncName);
                 string sTicketNumber = string.Empty;
                 string sBodyContent = string.Empty;
-                //SupportPortalService.SupportSoapClient oSupportPortal = new SupportPortalService.SupportSoapClient();
-
+                int iFinalSequenceNo = 0;
                 string sServer = ConfigurationManager.AppSettings["Server"];
                 int iPort = Convert.ToInt32(ConfigurationManager.AppSettings["Port"]);
                 string sFromEmail = ConfigurationManager.AppSettings["FromEmail"];
@@ -41,28 +40,34 @@ namespace IMAP
                     int iMailId = Convert.ToInt32(sLastEmailId);
                     for (int i = 440; i <= ImapClient.Messages.Count - 1; i++)
                     {
+                        oLog.WriteToDebugLogFile("Count of i : " + i ,sFuncName);
                         IEmail msm = (IEmail)ImapClient.Messages[i];
-                        if (msm.SequenceNumber > iMailId)
+                        if (!msm.Subject.Contains("Delivery Status Notification"))
                         {
-                            msm.LoadInfos();
-                            // Check the subject contains ticket ID or nor
-                            if (msm.Subject.Contains("[##"))
+                            if (msm.SequenceNumber > iMailId)
                             {
-                                sTicketNumber = oLogic.Between(msm.Subject, "[##", "##]");
-                                sBodyContent = msm.TextBody.ToString().Replace("\r\n", "<br/>");
-                                //call create thread
-                                string sResult = oLogic.InsertTicketThread(sTicketNumber, sBodyContent);
+                                msm.LoadInfos();
+                                // Check the subject contains ticket ID or nor
+                                if (msm.Subject.Contains("[##"))
+                                {
+                                    sTicketNumber = oLogic.Between(msm.Subject, "[##", "##]");
+                                    sBodyContent = msm.TextBody.ToString().Replace("\r\n", "<br/>");
+                                    //call create thread
+                                    string sResult = oLogic.InsertTicketThread(sTicketNumber, sBodyContent);
+                                    oLog.WriteToDebugLogFile("For Ticket Number : " + sTicketNumber + " the Result is " + sResult, sFuncName);
+                                }
+                                else
+                                {
+                                    string sEmail = msm.From[0];
+                                    string sUserName = oLogic.Before(sEmail, "@");
+                                    string sBodyContent1 = msm.TextBody.ToString().Replace("\r\n", "<br/>");
+                                    string sResult = oLogic.InsertTicketandUser(sUserName, sEmail, msm.Subject, sBodyContent1);
+                                    oLog.WriteToDebugLogFile("For Email id : " + sEmail + "and username : " + sUserName + " : the Result is " + sResult, sFuncName);
+                                }
                             }
-                            else
-                            {
-                                string sEmail = msm.From[0];
-                                string sUserName = oLogic.Before(sEmail, "@");
-                                string sResult = oLogic.InsertTicketandUser(sUserName, sEmail);
-                            }
-                            Console.WriteLine(msm.Date.ToString() + " - " + msm.From[0] + " - " +
-                                              msm.Subject + " - " + msm.TextBody + " - " + msm.Attachments.Count);
                         }
                     }
+
                     oLog.WriteToDebugLogFile("Ending Program", sFuncName);
                 }
                 else

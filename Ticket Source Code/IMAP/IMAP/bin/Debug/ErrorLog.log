@@ -6,3 +6,5 @@ Parameter name: index
 [03/16/2017 11:50:15 PM][                  Main Program] An endpoint configuration section for contract 'SupportPortalService.SupportSoap' could not be loaded because more than one endpoint configuration for that contract was found. Please indicate the preferred endpoint configuration section by name.
 [03/16/2017 11:50:21 PM][                  Main Program] An endpoint configuration section for contract 'SupportPortalService.SupportSoap' could not be loaded because more than one endpoint configuration for that contract was found. Please indicate the preferred endpoint configuration section by name.
 [03/16/2017 11:50:43 PM][                  Main Program] An endpoint configuration section for contract 'SupportPortalService.SupportSoap' could not be loaded because more than one endpoint configuration for that contract was found. Please indicate the preferred endpoint configuration section by name.
+[03/17/2017 11:16:34 AM][                  Main Program] Exception of type 'D.Net.EmailInterfaces.EMailException' was thrown.
+[03/17/2017 1:57:55 PM][            InsertTicketThread] Cannot find table 0.

@@ -84,7 +84,7 @@ namespace IMAP
             return sResult;
         }
 
-        public string InsertTicketandUser(string sUserName, string sEmail)
+        public string InsertTicketandUser(string sUserName, string sEmail, string sSubject, string sBodyContent)
         {
             clsLog oLog = new clsLog();
             string sErrDesc = string.Empty;
@@ -101,7 +101,7 @@ namespace IMAP
 
                 sProcName = "AE_SP002_SupportPortal_InsertTicketandUser";
                 oRetDt = Functions.ExecuteDataSet(ConnectionString, CommandType.StoredProcedure, sProcName, Data.CreateParameter("@UserName", sUserName),
-                     Data.CreateParameter("@Email", sEmail)).Tables[0];
+                     Data.CreateParameter("@Email", sEmail), Data.CreateParameter("@Subject",sSubject), Data.CreateParameter("@BodyContent", sBodyContent)).Tables[0];
                 if (oRetDt.Rows.Count > 0)
                 {
                     sResult = oRetDt.Rows[0]["Message"].ToString();

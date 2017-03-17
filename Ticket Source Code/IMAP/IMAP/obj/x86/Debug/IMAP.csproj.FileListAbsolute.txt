@@ -25,3 +25,13 @@ D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\D.Net.EmailInterfaces.pdb
 D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\LumiSoft.Net.pdb
 D:\VIVEK\Support Portal\IMAP\IMAP\bin\Debug\LumiSoft.Net.xml
 D:\VIVEK\Support Portal\IMAP\IMAP\obj\x86\Debug\IMAP.csprojResolveAssemblyReference.cache
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\IMAP.exe.config
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\obj\x86\Debug\IMAP.exe
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\obj\x86\Debug\IMAP.pdb
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\IMAP.exe
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\IMAP.pdb
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\D.Net.EmailClient.pdb
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\D.Net.EmailInterfaces.pdb
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\LumiSoft.Net.pdb
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\LumiSoft.Net.xml
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\obj\x86\Debug\IMAP.csprojResolveAssemblyReference.cache
