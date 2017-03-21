@@ -8,3 +8,11 @@ Parameter name: index
 [03/16/2017 11:50:43 PM][                  Main Program] An endpoint configuration section for contract 'SupportPortalService.SupportSoap' could not be loaded because more than one endpoint configuration for that contract was found. Please indicate the preferred endpoint configuration section by name.
 [03/17/2017 11:16:34 AM][                  Main Program] Exception of type 'D.Net.EmailInterfaces.EMailException' was thrown.
 [03/17/2017 1:57:55 PM][            InsertTicketThread] Cannot find table 0.
+[03/20/2017 1:48:36 PM][           InsertTicketandUser] Procedure or function 'AE_SP001_SupportPortal_InsertTicketThread' expects parameter '@SequenceNum', which was not supplied.
+[03/20/2017 1:48:36 PM][           InsertTicketandUser] Procedure or function 'AE_SP001_SupportPortal_InsertTicketThread' expects parameter '@SequenceNum', which was not supplied.
+[03/20/2017 1:48:36 PM][           InsertTicketandUser] Procedure or function 'AE_SP001_SupportPortal_InsertTicketThread' expects parameter '@SequenceNum', which was not supplied.
+[03/20/2017 1:48:37 PM][           InsertTicketandUser] Procedure or function 'AE_SP001_SupportPortal_InsertTicketThread' expects parameter '@SequenceNum', which was not supplied.
+[03/20/2017 3:16:05 PM][           InsertTicketandUser] Procedure or function 'AE_SP001_SupportPortal_InsertTicketThread' expects parameter '@SequenceNum', which was not supplied.
+[03/20/2017 3:17:48 PM][           InsertTicketandUser] Column 'TicketNum' does not belong to table Table.
+[03/20/2017 4:10:47 PM][                  Main Program] Exception of type 'D.Net.EmailInterfaces.EMailException' was thrown.
+[03/20/2017 4:12:32 PM][                  Main Program] Exception of type 'D.Net.EmailInterfaces.EMailException' was thrown.

@@ -34,14 +34,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="D.Net.EmailClient">
-      <HintPath>..\..\D.Net.Mail-noexe\Mail\D.Net.EmailClient\bin\Debug\D.Net.EmailClient.dll</HintPath>
+    <Reference Include="D.Net.EmailClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Support Portal\D.Net.Mail-noexe\Mail\D.Net.EmailClient\bin\Debug\D.Net.EmailClient.dll</HintPath>
     </Reference>
-    <Reference Include="D.Net.EmailInterfaces">
-      <HintPath>..\..\D.Net.Mail-noexe\Mail\D.Net.EmailClient\bin\Debug\D.Net.EmailInterfaces.dll</HintPath>
+    <Reference Include="D.Net.EmailInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Support Portal\D.Net.Mail-noexe\Mail\D.Net.EmailClient\bin\Debug\D.Net.EmailInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="LumiSoft.Net">
-      <HintPath>..\..\D.Net.Mail-noexe\Mail\D.Net.EmailClient\bin\Debug\LumiSoft.Net.dll</HintPath>
+    <Reference Include="LumiSoft.Net, Version=2.0.6288.33601, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Support Portal\D.Net.Mail-noexe\Mail\D.Net.EmailClient\bin\Debug\LumiSoft.Net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -95,6 +98,10 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Email Template\NewTicketTemplate.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

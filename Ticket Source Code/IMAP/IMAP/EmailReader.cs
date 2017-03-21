@@ -24,7 +24,6 @@ namespace IMAP
                 oLog.WriteToDebugLogFile("Starting Program", sFuncName);
                 string sTicketNumber = string.Empty;
                 string sBodyContent = string.Empty;
-                int iFinalSequenceNo = 0;
                 string sServer = ConfigurationManager.AppSettings["Server"];
                 int iPort = Convert.ToInt32(ConfigurationManager.AppSettings["Port"]);
                 string sFromEmail = ConfigurationManager.AppSettings["FromEmail"];
@@ -40,20 +39,33 @@ namespace IMAP
                     int iMailId = Convert.ToInt32(sLastEmailId);
                     for (int i = 440; i <= ImapClient.Messages.Count - 1; i++)
                     {
-                        oLog.WriteToDebugLogFile("Count of i : " + i ,sFuncName);
+                        string sCC = string.Empty;
+                        oLog.WriteToDebugLogFile("Count of i : " + i, sFuncName);
                         IEmail msm = (IEmail)ImapClient.Messages[i];
                         if (!msm.Subject.Contains("Delivery Status Notification"))
                         {
                             if (msm.SequenceNumber > iMailId)
                             {
                                 msm.LoadInfos();
+
+                                foreach (var item in msm.Cc)
+                                {
+                                    if (sCC.Length == 0)
+                                    {
+                                        sCC = item.ToString();
+                                    }
+                                    else
+                                    {
+                                        sCC = sCC + "," + item.ToString();
+                                    }
+                                }
                                 // Check the subject contains ticket ID or nor
                                 if (msm.Subject.Contains("[##"))
                                 {
                                     sTicketNumber = oLogic.Between(msm.Subject, "[##", "##]");
                                     sBodyContent = msm.TextBody.ToString().Replace("\r\n", "<br/>");
                                     //call create thread
-                                    string sResult = oLogic.InsertTicketThread(sTicketNumber, sBodyContent);
+                                    string sResult = oLogic.InsertTicketThread(sTicketNumber, sBodyContent, msm.SequenceNumber, sCC);
                                     oLog.WriteToDebugLogFile("For Ticket Number : " + sTicketNumber + " the Result is " + sResult, sFuncName);
                                 }
                                 else
@@ -61,7 +73,15 @@ namespace IMAP
                                     string sEmail = msm.From[0];
                                     string sUserName = oLogic.Before(sEmail, "@");
                                     string sBodyContent1 = msm.TextBody.ToString().Replace("\r\n", "<br/>");
-                                    string sResult = oLogic.InsertTicketandUser(sUserName, sEmail, msm.Subject, sBodyContent1);
+                                    string sResult = oLogic.InsertTicketandUser(sUserName, sEmail, msm.Subject, sBodyContent1, msm.SequenceNumber, sCC);
+                                    string[] sArray = sResult.Split('*');
+                                    if (sArray[0] == "SUCCESS")
+                                    {
+                                        // Send auto reply email to the person who raised the ticket
+                                        oLog.WriteToDebugLogFile("Before sending email to Email id : " + sEmail + "and username : " + sUserName , sFuncName);
+                                        string sSentStatus = oLogic.SendAutomatedEmail(sEmail, sUserName, sArray[1].ToString(), msm.Subject, "[##" + sArray[1].ToString() + "##]", sBodyContent1, ref sErrDesc);
+                                        oLog.WriteToDebugLogFile("AFter sending email to Email id : " + sEmail + "and username : " + sUserName, sFuncName);
+                                    }
                                     oLog.WriteToDebugLogFile("For Email id : " + sEmail + "and username : " + sUserName + " : the Result is " + sResult, sFuncName);
                                 }
                             }

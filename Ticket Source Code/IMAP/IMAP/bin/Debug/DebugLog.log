@@ -2075,3 +2075,216 @@
 [03/17/2017 2:11:06 PM][InsertTicketandUser] Completed with SUCCESS
 [03/17/2017 2:11:06 PM][Main Program] For Email id : vivekrm60@gmail.comand username : vivekrm60 : the Result is Ticket Thread Successfully Created
 [03/17/2017 2:11:06 PM][Main Program] Ending Program
+[03/20/2017 1:48:33 PM][Main Program] Starting Program
+[03/20/2017 1:48:35 PM][GetMailNumber] Starting Function
+[03/20/2017 1:48:35 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 1:48:35 PM][Main Program] Count of i : 440
+[03/20/2017 1:48:35 PM][Main Program] Count of i : 441
+[03/20/2017 1:48:36 PM][InsertTicketandUser] Starting Function
+[03/20/2017 1:48:36 PM][InsertTicketandUser] Completed With ERROR
+[03/20/2017 1:48:36 PM][Main Program] For Email id : thomas550i@gmail.comand username : thomas550i : the Result is Procedure or function 'AE_SP001_SupportPortal_InsertTicketThread' expects parameter '@SequenceNum', which was not supplied.
+[03/20/2017 1:48:36 PM][Main Program] Count of i : 442
+[03/20/2017 1:48:36 PM][InsertTicketandUser] Starting Function
+[03/20/2017 1:48:36 PM][InsertTicketandUser] Completed With ERROR
+[03/20/2017 1:48:36 PM][Main Program] For Email id : thomas550i@gmail.comand username : thomas550i : the Result is Procedure or function 'AE_SP001_SupportPortal_InsertTicketThread' expects parameter '@SequenceNum', which was not supplied.
+[03/20/2017 1:48:36 PM][Main Program] Count of i : 443
+[03/20/2017 1:48:36 PM][InsertTicketandUser] Starting Function
+[03/20/2017 1:48:36 PM][InsertTicketandUser] Completed With ERROR
+[03/20/2017 1:48:36 PM][Main Program] For Email id : jeevas@abeo-electra.comand username : jeevas : the Result is Procedure or function 'AE_SP001_SupportPortal_InsertTicketThread' expects parameter '@SequenceNum', which was not supplied.
+[03/20/2017 1:48:36 PM][Main Program] Count of i : 444
+[03/20/2017 1:48:37 PM][InsertTicketThread] Starting Function
+[03/20/2017 1:48:37 PM][InsertTicketThread] Completed with SUCCESS
+[03/20/2017 1:48:37 PM][Main Program] For Ticket Number : ABEO-26 the Result is Ticket ID is not there in ticket table
+[03/20/2017 1:48:37 PM][Main Program] Count of i : 445
+[03/20/2017 1:48:37 PM][Main Program] Count of i : 446
+[03/20/2017 1:48:37 PM][InsertTicketandUser] Starting Function
+[03/20/2017 1:48:37 PM][InsertTicketandUser] Completed With ERROR
+[03/20/2017 1:48:37 PM][Main Program] For Email id : vivekrm60@gmail.comand username : vivekrm60 : the Result is Procedure or function 'AE_SP001_SupportPortal_InsertTicketThread' expects parameter '@SequenceNum', which was not supplied.
+[03/20/2017 1:49:02 PM][Main Program] Ending Program
+[03/20/2017 1:49:10 PM][Main Program] Starting Program
+[03/20/2017 1:49:12 PM][GetMailNumber] Starting Function
+[03/20/2017 1:49:12 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 1:49:22 PM][Main Program] Count of i : 440
+[03/20/2017 1:49:30 PM][Main Program] Count of i : 441
+[03/20/2017 1:49:32 PM][Main Program] Count of i : 442
+[03/20/2017 1:49:36 PM][Main Program] Count of i : 443
+[03/20/2017 1:49:40 PM][Main Program] Count of i : 444
+[03/20/2017 1:49:40 PM][Main Program] Count of i : 445
+[03/20/2017 1:49:40 PM][Main Program] Count of i : 446
+[03/20/2017 1:49:41 PM][Main Program] Ending Program
+[03/20/2017 3:15:49 PM][Main Program] Starting Program
+[03/20/2017 3:15:51 PM][GetMailNumber] Starting Function
+[03/20/2017 3:15:51 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 3:15:51 PM][Main Program] Count of i : 440
+[03/20/2017 3:15:51 PM][Main Program] Count of i : 441
+[03/20/2017 3:15:51 PM][Main Program] Count of i : 442
+[03/20/2017 3:15:51 PM][Main Program] Count of i : 443
+[03/20/2017 3:15:51 PM][Main Program] Count of i : 444
+[03/20/2017 3:15:51 PM][Main Program] Count of i : 445
+[03/20/2017 3:15:51 PM][Main Program] Count of i : 446
+[03/20/2017 3:15:51 PM][Main Program] Count of i : 447
+[03/20/2017 3:16:04 PM][InsertTicketandUser] Starting Function
+[03/20/2017 3:16:05 PM][InsertTicketandUser] Completed With ERROR
+[03/20/2017 3:17:48 PM][InsertTicketandUser] Starting Function
+[03/20/2017 3:17:48 PM][InsertTicketandUser] Completed With ERROR
+[03/20/2017 3:19:03 PM][InsertTicketandUser] Starting Function
+[03/20/2017 3:21:09 PM][InsertTicketandUser] Starting Function
+[03/20/2017 3:21:20 PM][InsertTicketandUser] Completed with SUCCESS
+[03/20/2017 3:23:20 PM][Main Program] Starting Program
+[03/20/2017 3:23:22 PM][GetMailNumber] Starting Function
+[03/20/2017 3:23:22 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 3:23:22 PM][Main Program] Count of i : 440
+[03/20/2017 3:23:22 PM][Main Program] Count of i : 441
+[03/20/2017 3:23:22 PM][Main Program] Count of i : 442
+[03/20/2017 3:23:22 PM][Main Program] Count of i : 443
+[03/20/2017 3:23:22 PM][Main Program] Count of i : 444
+[03/20/2017 3:23:22 PM][Main Program] Count of i : 445
+[03/20/2017 3:23:22 PM][Main Program] Count of i : 446
+[03/20/2017 3:23:22 PM][Main Program] Count of i : 447
+[03/20/2017 3:23:24 PM][InsertTicketandUser] Starting Function
+[03/20/2017 3:23:24 PM][InsertTicketandUser] Completed with SUCCESS
+[03/20/2017 3:23:35 PM][SendAutomatedEmail] Sarting function
+[03/20/2017 3:23:35 PM][SendAutomatedEmail] Setting SMTP properties
+[03/20/2017 3:23:38 PM][SendAutomatedEmail] Calling Function CreateDefaultMailMessage()
+[03/20/2017 3:23:38 PM][SendAutomatedEmail] Sarting function
+[03/20/2017 3:23:39 PM][SendAutomatedEmail] Assigning Email Properties..
+[03/20/2017 3:23:43 PM][SendAutomatedEmail] Adding To Email Address:  vivekrm60@gmail.com
+[03/20/2017 3:24:11 PM][SendAutomatedEmail] Sending Email Message
+[03/20/2017 3:24:11 PM][SendAutomatedEmail] Sending Email Messages to : vivekrm60@gmail.com
+[03/20/2017 3:24:16 PM][SendAutomatedEmail] Function completed with Success
+[03/20/2017 3:24:22 PM][Main Program] For Email id : vivekrm60@gmail.comand username : vivekrm60 : the Result is SUCCESS*ABEO-26
+[03/20/2017 3:24:26 PM][Main Program] Ending Program
+[03/20/2017 3:40:43 PM][Main Program] Starting Program
+[03/20/2017 3:40:45 PM][GetMailNumber] Starting Function
+[03/20/2017 3:40:45 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 3:40:45 PM][Main Program] Count of i : 440
+[03/20/2017 3:40:45 PM][Main Program] Count of i : 441
+[03/20/2017 3:40:45 PM][Main Program] Count of i : 442
+[03/20/2017 3:40:45 PM][Main Program] Count of i : 443
+[03/20/2017 3:40:45 PM][Main Program] Count of i : 444
+[03/20/2017 3:40:45 PM][Main Program] Count of i : 445
+[03/20/2017 3:40:45 PM][Main Program] Count of i : 446
+[03/20/2017 3:40:45 PM][Main Program] Count of i : 447
+[03/20/2017 3:40:45 PM][Main Program] Count of i : 448
+[03/20/2017 3:40:45 PM][InsertTicketandUser] Starting Function
+[03/20/2017 3:40:45 PM][InsertTicketandUser] Completed with SUCCESS
+[03/20/2017 3:40:45 PM][Main Program] Before sending email to Email id : thomasp@abeo-electra.comand username : thomasp
+[03/20/2017 3:40:45 PM][SendAutomatedEmail] Sarting function
+[03/20/2017 3:40:45 PM][SendAutomatedEmail] Setting SMTP properties
+[03/20/2017 3:40:45 PM][SendAutomatedEmail] Calling Function CreateDefaultMailMessage()
+[03/20/2017 3:40:45 PM][SendAutomatedEmail] Sarting function
+[03/20/2017 3:40:45 PM][SendAutomatedEmail] Assigning Email Properties..
+[03/20/2017 3:40:45 PM][SendAutomatedEmail] Adding To Email Address:  thomasp@abeo-electra.com
+[03/20/2017 3:40:45 PM][SendAutomatedEmail] Sending Email Message
+[03/20/2017 3:40:45 PM][SendAutomatedEmail] Sending Email Messages to : thomasp@abeo-electra.com
+[03/20/2017 3:40:48 PM][SendAutomatedEmail] Function completed with Success
+[03/20/2017 3:40:48 PM][Main Program] AFter sending email to Email id : thomasp@abeo-electra.comand username : thomasp
+[03/20/2017 3:40:48 PM][Main Program] For Email id : thomasp@abeo-electra.comand username : thomasp : the Result is SUCCESS*ABEO-27
+[03/20/2017 3:40:48 PM][Main Program] Ending Program
+[03/20/2017 3:43:09 PM][Main Program] Starting Program
+[03/20/2017 3:43:11 PM][GetMailNumber] Starting Function
+[03/20/2017 3:43:11 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 440
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 441
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 442
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 443
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 444
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 445
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 446
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 447
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 448
+[03/20/2017 3:43:11 PM][Main Program] Count of i : 449
+[03/20/2017 3:43:11 PM][InsertTicketThread] Starting Function
+[03/20/2017 3:43:11 PM][InsertTicketThread] Completed with SUCCESS
+[03/20/2017 3:43:11 PM][Main Program] For Ticket Number : ABEO-27 the Result is Ticket Thread Successfully Created
+[03/20/2017 3:43:11 PM][Main Program] Ending Program
+[03/20/2017 4:10:45 PM][Main Program] Starting Program
+[03/20/2017 4:10:47 PM][Main Program] Completed With ERROR  
+[03/20/2017 4:12:30 PM][Main Program] Starting Program
+[03/20/2017 4:12:32 PM][Main Program] Completed With ERROR  
+[03/20/2017 4:12:44 PM][Main Program] Starting Program
+[03/20/2017 4:17:57 PM][Main Program] Starting Program
+[03/20/2017 4:22:37 PM][Main Program] Starting Program
+[03/20/2017 5:03:38 PM][Main Program] Starting Program
+[03/20/2017 5:07:08 PM][Main Program] Starting Program
+[03/20/2017 5:08:27 PM][GetMailNumber] Starting Function
+[03/20/2017 5:08:28 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 5:08:38 PM][Main Program] Ending Program
+[03/20/2017 5:19:58 PM][Main Program] Starting Program
+[03/20/2017 6:15:39 PM][Main Program] Starting Program
+[03/20/2017 6:27:35 PM][Main Program] Starting Program
+[03/20/2017 6:34:03 PM][Main Program] Starting Program
+[03/20/2017 7:04:50 PM][Main Program] Starting Program
+[03/20/2017 7:04:58 PM][GetMailNumber] Starting Function
+[03/20/2017 7:04:58 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 7:05:07 PM][Main Program] Count of i : 440
+[03/20/2017 7:06:11 PM][Main Program] Ending Program
+[03/20/2017 7:11:14 PM][Main Program] Starting Program
+[03/20/2017 7:12:37 PM][Main Program] Starting Program
+[03/20/2017 7:12:52 PM][Main Program] Ending Program
+[03/20/2017 7:14:17 PM][Main Program] Starting Program
+[03/20/2017 7:15:05 PM][Main Program] Starting Program
+[03/20/2017 7:19:11 PM][Main Program] Starting Program
+[03/20/2017 7:20:18 PM][Main Program] Starting Program
+[03/20/2017 7:21:16 PM][Main Program] Starting Program
+[03/20/2017 7:22:33 PM][GetMailNumber] Starting Function
+[03/20/2017 7:22:34 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 7:22:53 PM][Main Program] Count of i : 440
+[03/20/2017 7:24:38 PM][Main Program] Starting Program
+[03/20/2017 7:24:42 PM][GetMailNumber] Starting Function
+[03/20/2017 7:24:42 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 7:24:48 PM][Main Program] Count of i : 440
+[03/20/2017 7:24:54 PM][Main Program] Count of i : 441
+[03/20/2017 7:26:36 PM][Main Program] Ending Program
+[03/20/2017 7:33:45 PM][Main Program] Starting Program
+[03/20/2017 7:34:21 PM][Main Program] Ending Program
+[03/20/2017 7:35:16 PM][Main Program] Starting Program
+[03/20/2017 7:35:22 PM][GetMailNumber] Starting Function
+[03/20/2017 7:35:22 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 7:40:18 PM][Main Program] Starting Program
+[03/20/2017 7:40:23 PM][GetMailNumber] Starting Function
+[03/20/2017 7:40:24 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 7:43:54 PM][Main Program] Starting Program
+[03/20/2017 7:43:56 PM][GetMailNumber] Starting Function
+[03/20/2017 7:43:56 PM][GetMailNumber] Completed with SUCCESS
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 440
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 441
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 442
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 443
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 444
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 445
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 446
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 447
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 448
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 449
+[03/20/2017 7:43:56 PM][Main Program] Count of i : 450
+[03/20/2017 7:44:22 PM][InsertTicketandUser] Starting Function
+[03/20/2017 7:44:22 PM][InsertTicketandUser] Completed with SUCCESS
+[03/20/2017 7:44:24 PM][Main Program] Before sending email to Email id : thomasp@abeo-electra.comand username : thomasp
+[03/20/2017 7:44:25 PM][SendAutomatedEmail] Sarting function
+[03/20/2017 7:44:25 PM][SendAutomatedEmail] Setting SMTP properties
+[03/20/2017 7:44:25 PM][SendAutomatedEmail] Calling Function CreateDefaultMailMessage()
+[03/20/2017 7:44:25 PM][SendAutomatedEmail] Sarting function
+[03/20/2017 7:44:25 PM][SendAutomatedEmail] Assigning Email Properties..
+[03/20/2017 7:44:25 PM][SendAutomatedEmail] Adding To Email Address:  thomasp@abeo-electra.com
+[03/20/2017 7:44:25 PM][SendAutomatedEmail] Sending Email Message
+[03/20/2017 7:44:25 PM][SendAutomatedEmail] Sending Email Messages to : thomasp@abeo-electra.com
+[03/20/2017 7:44:27 PM][SendAutomatedEmail] Function completed with Success
+[03/20/2017 7:44:28 PM][Main Program] AFter sending email to Email id : thomasp@abeo-electra.comand username : thomasp
+[03/20/2017 7:44:29 PM][Main Program] For Email id : thomasp@abeo-electra.comand username : thomasp : the Result is SUCCESS*ABEO-28
+[03/20/2017 7:44:32 PM][Main Program] Count of i : 451
+[03/20/2017 7:44:43 PM][InsertTicketandUser] Starting Function
+[03/20/2017 7:44:43 PM][InsertTicketandUser] Completed with SUCCESS
+[03/20/2017 7:44:45 PM][Main Program] Before sending email to Email id : no-reply@accounts.google.comand username : no-reply
+[03/20/2017 7:44:45 PM][SendAutomatedEmail] Sarting function
+[03/20/2017 7:44:45 PM][SendAutomatedEmail] Setting SMTP properties
+[03/20/2017 7:44:45 PM][SendAutomatedEmail] Calling Function CreateDefaultMailMessage()
+[03/20/2017 7:44:45 PM][SendAutomatedEmail] Sarting function
+[03/20/2017 7:44:45 PM][SendAutomatedEmail] Assigning Email Properties..
+[03/20/2017 7:44:45 PM][SendAutomatedEmail] Adding To Email Address:  no-reply@accounts.google.com
+[03/20/2017 7:44:45 PM][SendAutomatedEmail] Sending Email Message
+[03/20/2017 7:44:45 PM][SendAutomatedEmail] Sending Email Messages to : no-reply@accounts.google.com
+[03/20/2017 7:44:47 PM][SendAutomatedEmail] Function completed with Success
+[03/20/2017 7:44:47 PM][Main Program] AFter sending email to Email id : no-reply@accounts.google.comand username : no-reply
+[03/20/2017 7:44:47 PM][Main Program] For Email id : no-reply@accounts.google.comand username : no-reply : the Result is SUCCESS*ABEO-29
+[03/20/2017 7:44:47 PM][Main Program] Ending Program

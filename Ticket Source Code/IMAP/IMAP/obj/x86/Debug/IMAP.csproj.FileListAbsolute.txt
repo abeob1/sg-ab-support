@@ -35,3 +35,6 @@ D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\D.Net.Em
 D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\LumiSoft.Net.pdb
 D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\LumiSoft.Net.xml
 D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\obj\x86\Debug\IMAP.csprojResolveAssemblyReference.cache
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\D.Net.EmailClient.dll
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\D.Net.EmailInterfaces.dll
+D:\VIVEK\sg-ab-support.git\trunk\Ticket Source Code\IMAP\IMAP\bin\Debug\LumiSoft.Net.dll
