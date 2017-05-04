@@ -1,6 +1,6 @@
 App.service('util_SERVICE', ['$http', '$window', '$cookieStore', '$rootScope', function ($http, $window, $cookie, $rootScope) {
     var urlsd = window.location.href.split("/");
-    this.url = "http://54.251.51.69:3995/Support.asmx/";
+    this.url = "http://54.179.45.219:3995/Support.asmx/";
 	//this.Burl = "http://192.168.0.38:82";
 	//this.url = "http://localhost:8080/support/api/api.php";
 	this.APIKEY = "kkksjjshjhjewfndsafjnenfaeeadadw";

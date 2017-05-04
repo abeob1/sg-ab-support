@@ -74,9 +74,13 @@ var data = {
                $cookies.put('UserData', JSON.stringify(response.data.USERINFO));
                $cookies.put('Islogin', "true");
 			   if(response.data.USERINFO[0].account_type=="Customer")
+			   {
               		window.location = "customerdashbord.html";
+			   }
 				else
+				{
 					window.location = "dashbord.html";
+				}
            }
             else
                alert(response.data.VALIDATE[0].Msg);
