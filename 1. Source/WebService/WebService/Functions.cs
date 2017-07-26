@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Collections;
 using System.Transactions;
@@ -10,6 +11,7 @@ using System.Web;
 using System.IO;
 using System.Data;
 using System.Data.Common;
+using System.Net;
 
 namespace WebService
 {
@@ -544,6 +546,19 @@ namespace WebService
         }
 
         #region public methods
+
+        //FROM ICSB
+        public static DataSet jsontodata(string sjon)
+        {
+            DataSet data = JsonConvert.DeserializeObject<DataSet>(sjon);
+            return data;
+        }
+
+        public static string ds2json(DataSet ds)
+        {
+            return JsonConvert.SerializeObject(ds, Formatting.Indented);
+        }
+
         public static DataSet ExecuteDataSet(string connectionString, CommandType commandType, string commandText)
         {
             return ExecuteDataSet(connectionString, commandType, commandText, (DbParameter[])null);
@@ -564,6 +579,67 @@ namespace WebService
             using (SqlCommand command2 = CreateCommand(GetTransactionSqlConnection(connectionString), commandType, commandText, parameters))
             {
                 return CreateDataSet(command2);
+            }
+        }
+
+        //Datatable
+
+        public static DataSet ErrorHandling(string sErrDesc)
+        {
+            DataTable dt = new DataTable();
+            DataSet dsNew = new DataSet();
+            DataRow row = dt.NewRow();
+            dt.TableName = "VALIDATE";
+            dt.Columns.Add("Status");
+            dt.Columns.Add("Msg");
+
+            row[0] = false;
+            row[1] = sErrDesc;
+            dt.Rows.Add(row);
+
+            dsNew.Tables.Add(dt);
+            dt.Dispose();
+            return dsNew;
+
+        }
+
+        public static DataTable SuccessOutput(string sMsg)
+        {
+            DataTable dt = new DataTable();
+            DataRow row = dt.NewRow();
+            dt.TableName = "VALIDATE";
+            dt.Columns.Add("Status");
+            dt.Columns.Add("Msg");
+
+            row[0] = true;
+            row[1] = sMsg;
+            dt.Rows.Add(row);
+
+            return dt;
+
+        }
+
+        public static DataTable ExecuteDatatable(string connectionString, CommandType commandType, string commandText)
+        {
+            //return ExecuteDataSet(connectionString, commandType, commandText, (DbParameter[])null);
+            return ExecuteDataTable(connectionString, commandType, commandText, (DbParameter[])null);
+        }
+
+        public static DataTable ExecuteDataTable(string connectionString, CommandType commandType, string commandText, params DbParameter[] parameters)
+        {
+            if (Transaction.Current == null)
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = CreateCommand(connection, commandType, commandText, parameters))
+                    {
+                        return CreateDataTable(command);
+                    }
+                }
+            }
+            using (SqlCommand command2 = CreateCommand(GetTransactionSqlConnection(connectionString), commandType, commandText, parameters))
+            {
+                return CreateDataTable(command2);
             }
         }
 
@@ -682,7 +758,7 @@ namespace WebService
             }
             return flag;
         }
-        
+
         #endregion
 
         #region private methods
